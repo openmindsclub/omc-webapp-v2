@@ -12,26 +12,24 @@ defineProps({
     :style="{ '--title-color': color }"
   >
     <div class="top d-flex fl-col fl-a-c">
-      <div class="line animate"></div>
-      <div class="number animate-circle d-flex fl-j-c fl-a-c">
-        <div>
-          <svg
-            class="circle"
-            width="60px"
-            height="60px"
-            xmlns="http://www.w3.org/2000/svg"
-            transform="rotate(-95)"
-          >
-            <circle
-              cx="30"
-              cy="30"
-              r="28"
-              fill="none"
-              :style="{ stroke: 'var(--title-color)' }"
-              stroke-width="3"
-            />
-          </svg>
-        </div>
+      <div class="line hidden"></div>
+      <div class="number hidden d-flex fl-j-c fl-a-c">
+        <svg
+          class="circle"
+          width="60px"
+          height="60px"
+          xmlns="http://www.w3.org/2000/svg"
+          transform="rotate(-95)"
+        >
+          <circle
+            cx="30"
+            cy="30"
+            r="27"
+            fill="none"
+            :style="{ stroke: 'var(--title-color)' }"
+            stroke-width="3"
+          />
+        </svg>
         <span>{{ number }}</span>
       </div>
     </div>
@@ -68,26 +66,28 @@ h1 {
 }
 .number {
   position: relative;
+  height: 60px;
+  width: 60px;
   color: var(--title-color);
   font-size: 30px;
   font-weight: 400;
   stroke-dasharray: 315;
-  margin-top: -2px;
   opacity: 0;
 }
 .number span {
   position: absolute;
+  display: block;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .animate-line {
-  -webkit-animation: slideDown 1s;
-  animation: slideDown 1s;
+  -webkit-animation: slideDown .5s;
+  animation: slideDown .5s;
 }
 .animate-circle {
-  -webkit-animation: drawCircle 1s 1s forwards;
-  animation: drawCircle 1s 1s forwards;
+  -webkit-animation: drawCircle .5s .5s forwards;
+  animation: drawCircle .5s .5s forwards;
 }
 
 @keyframes slideDown {

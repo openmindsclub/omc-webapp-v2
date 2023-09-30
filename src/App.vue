@@ -2,21 +2,25 @@
 import { onMounted } from "vue";
 import Title from "./components/Title.vue";
 
+import divider from "./assets/svg/divider.svg";
+
 // observer to run the animation everytime the title is in the view
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const line = entry.target.querySelector(".line");
     const circle = entry.target.querySelector(".number");
-    if (entry.intersectionRatio > 0) {
+
+    const divider = entry.target.classList.contains("divider");
+    if (divider && entry.intersectionRatio > 0) {
+      entry.target?.classList.remove("hidden");
+      entry.target?.classList.add("animate-divider");
+    }
+
+    if (line && entry.intersectionRatio > 0) {
       line?.classList.remove("hidden");
       line?.classList.add("animate-line");
       circle?.classList.add("animate-circle");
       circle?.classList.remove("hidden");
-    } else {
-      line?.classList.add("hidden");
-      line?.classList.remove("animate-line");
-      circle?.classList.add("hidden");
-      circle?.classList.remove("animate-circle");
     }
   });
 });
@@ -24,6 +28,11 @@ const observer = new IntersectionObserver((entries) => {
 onMounted(() => {
   const titles = document.querySelectorAll(".title");
   titles.forEach((el) => {
+    observer.observe(el);
+  });
+
+  const dividers = document.querySelectorAll(".divider");
+  dividers.forEach((el) => {
     observer.observe(el);
   });
 });
@@ -123,7 +132,10 @@ onMounted(() => {
     ></Title>
     <div class="content d-flex fl-j-sb">
       <div></div>
-      <div></div>
+      <div class="divider-container">
+        <div class="divider"></div>
+        <img :src="divider" alt="" />
+      </div>
       <div></div>
     </div>
   </section>
@@ -377,7 +389,7 @@ onMounted(() => {
   width: 100%;
   min-height: 105vh;
   overflow: hidden;
-  padding: 0 5%;
+  padding: 1em 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -415,5 +427,30 @@ onMounted(() => {
 }
 .show {
   opacity: 1;
+}
+
+.divider-container {
+  position: relative;
+  height: 500px;
+}
+.divider {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-dark-blue);
+}
+.animate-divider {
+  animation: slideDown1 ease-in-out 2s forwards;
+  animation-delay: .5s;
+}
+
+@keyframes slideDown1 {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0;
+  }
 }
 </style>
