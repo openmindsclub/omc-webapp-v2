@@ -5,6 +5,7 @@
   --color-green: #49ac36;
   --color-blue: #3173bb;
   --color-orange: #f8ae28;
+  --color-dark-blue: #04090f;
 }
 
 * {
@@ -22,25 +23,26 @@ body,
 
 body {
   font-family: "Ubuntu", sans-serif;
+  background-color: var(--color-dark-blue);
 }
 
 .d-flex {
-    display: flex;
+  display: flex;
 }
 .fl-col {
-    flex-direction: column;
+  flex-direction: column;
 }
 .fl-j-c {
-    justify-content: center;
+  justify-content: center;
 }
 .fl-j-sb {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 .fl-j-sa {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 .fl-a-c {
-    align-items: center;
+  align-items: center;
 }
 
 
