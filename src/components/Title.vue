@@ -2,14 +2,36 @@
 defineProps({
   number: Number,
   text: String,
+  color: String,
 });
 </script>
 
 <template>
-  <div class="d-flex fl-col fl-a-c">
-    <div class="d-flex fl-col fl-a-c">
+  <div
+    class="container d-flex fl-col fl-a-c"
+    :style="{ '--title-color': color }"
+  >
+    <div class="top d-flex fl-col fl-a-c">
       <div class="line animate"></div>
-      <div class="number animate d-flex fl-j-c fl-a-c">
+      <div class="number animate-circle d-flex fl-j-c fl-a-c">
+        <div>
+          <svg
+            class="circle"
+            width="60px"
+            height="60px"
+            xmlns="http://www.w3.org/2000/svg"
+            transform="rotate(-95)"
+          >
+            <circle
+              cx="30"
+              cy="30"
+              r="28"
+              fill="none"
+              :style="{ stroke: 'var(--title-color)' }"
+              stroke-width="3"
+            />
+          </svg>
+        </div>
         <span>{{ number }}</span>
       </div>
     </div>
@@ -18,12 +40,20 @@ defineProps({
 </template>
 
 <style scoped>
+.container {
+  position: relative;
+  padding-top: 170px;
+}
 h1 {
-  color: #fff;
+  color: var(--title-color);
   text-align: center;
   font-size: 48px;
   font-weight: 700;
   padding: 30px;
+}
+.top {
+  position: absolute;
+  top: 0;
 }
 .line {
   width: 3.6px;
@@ -31,35 +61,54 @@ h1 {
   border-radius: 7.2px;
   background: linear-gradient(
     180deg,
-    #1e1f21 0%,
-    #3173bb 99.98%,
-    rgba(117, 166, 237, 0.56) 99.99%,
-    #3173bb 100%
+    #1d1c29 0%,
+    var(--title-color) 50%,
+    var(--title-color) 100%
   );
 }
 .number {
-  width: 62.4px;
-  height: 62.4px;
-  color: var(--color-blue);
+  position: relative;
+  color: var(--title-color);
   font-size: 30px;
   font-weight: 400;
-  border-radius: 50%;
-  border: 3.6px solid var(--color-blue);
+  stroke-dasharray: 315;
+  margin-top: -2px;
+  opacity: 0;
 }
-
-.animate {
+.number span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.animate-line {
   -webkit-animation: slideDown 1s;
   animation: slideDown 1s;
+}
+.animate-circle {
+  -webkit-animation: drawCircle 1s 1s forwards;
+  animation: drawCircle 1s 1s forwards;
 }
 
 @keyframes slideDown {
   from {
-    transform: translateY(-108px);
+    height: 0;
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    height: 108px;
     opacity: 1;
+  }
+}
+
+@keyframes drawCircle {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 290;
+  }
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 14;
   }
 }
 </style>
