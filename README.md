@@ -1,7 +1,41 @@
-# Vue 3 + Vite
+# Open Minds Club Website
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### Project setup
 
-## Recommended IDE Setup
+1. **Clone the repository to your local machine:**
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+   ```shell
+   git clone <repository-url>
+   ```
+
+2. **Install project dependencies:**
+
+   ```
+   npm install
+   ```
+
+### Development
+
+To run the development server:
+
+```
+npm run dev
+```
+
+This will start the development server, and you can access the website at http://localhost:3000
+
+### Building for Production
+
+```
+npm run build
+```
+
+This will generate production-ready files in the dist directory.
+
+### Previewing Production Build
+
+```
+npm run preview
+```
+
+This will serve the production build locally at http://localhost:5000 for testing.
