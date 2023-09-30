@@ -130,13 +130,28 @@ onMounted(() => {
       number="2"
       color="#e82b1f"
     ></Title>
-    <div class="content d-flex fl-j-sb">
-      <div></div>
+    <div class="content d-flex">
+      <div class="left d-flex fl-col fl-j-c">
+        <div>
+          <h2 class="subtitle">> Title of section 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do
+            eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div>
+          <h2 class="subtitle">> Title of section 2</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do
+            eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
       <div class="divider-container">
         <div class="divider"></div>
         <img :src="divider" alt="" />
       </div>
-      <div></div>
+      <div class="right"></div>
     </div>
   </section>
   <section class="section events">
@@ -401,7 +416,10 @@ onMounted(() => {
   font-size: 24px;
   font-weight: 400;
 }
-.section.about {
+.section .content {
+  width: 100%;
+}
+.about {
   background-image: url(./assets/images/members.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -432,6 +450,7 @@ onMounted(() => {
 .divider-container {
   position: relative;
   height: 500px;
+  width: 20%;
 }
 .divider {
   position: absolute;
@@ -442,7 +461,22 @@ onMounted(() => {
 }
 .animate-divider {
   animation: slideDown1 ease-in-out 2s forwards;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
+}
+
+.open-source .left, .open-source .right {
+  width: 40%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: #fff;
+  font-family: Ubuntu Mono;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: 32px;
+  font-weight: 700;
 }
 
 @keyframes slideDown1 {
