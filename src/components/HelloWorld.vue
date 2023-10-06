@@ -1,11 +1,13 @@
 <script setup>
 defineProps({
-  msg: String,
+  h: String,
 });
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <div class="cont">
+    <h1>{{ h }}</h1>
+  </div>
 </template>
 
 <style scoped>

@@ -83,6 +83,9 @@
   }
 
   @media (max-width: 950px) {
+    li:hover {
+      color: #e82b1f;
+    }
     .menu-toggle {
         margin: 0;
         padding: 0;
@@ -116,6 +119,11 @@
         width: 60px;
         height: 60px;
         transition: transform 1.2s ease;
+    }
+  }
+  @media (max-width: 400px) { 
+    .right-part { 
+      left: 43%;
     }
   }
 </style>
