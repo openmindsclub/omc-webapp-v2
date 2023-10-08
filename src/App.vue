@@ -4,6 +4,8 @@ import Title from "./components/Title.vue";
 
 import divider from "./assets/svg/divider.svg";
 import BureauSection from "./components/BureauSection.vue";
+import Hero from "./components/Hero.vue";
+import Navbar from "./components/Navbar.vue";
 
 // observer to run the animation everytime the title is in the view
 const observer = new IntersectionObserver((entries) => {
@@ -40,6 +42,8 @@ onMounted(() => {
 </script>
 
 <template>
+  <Navbar />
+  <Hero />
   <section class="section about">
     <div class="oval oval-right">
       <svg viewBox="0 0 437 749" fill="none" xmlns="http://www.w3.org/2000/svg">
