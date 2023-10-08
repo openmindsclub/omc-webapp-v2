@@ -3,6 +3,7 @@ import { onMounted } from "vue";
 import Title from "./components/Title.vue";
 
 import divider from "./assets/svg/divider.svg";
+import BureauSection from "./components/BureauSection.vue";
 
 // observer to run the animation everytime the title is in the view
 const observer = new IntersectionObserver((entries) => {
@@ -135,19 +136,21 @@ onMounted(() => {
         <div>
           <h2 class="subtitle">> Title of section 1</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do
-            eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur <br />
+            adipiscing elit, sed do eiusmod tempor <br />
+            incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
         <div>
           <h2 class="subtitle">> Title of section 2</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do
-            eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur <br />
+            adipiscing elit, sed do eiusmod tempor <br />
+            incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
       </div>
-      <div class="divider-container">
+      <div class="divider-container d-flex fl-j-c">
         <div class="divider"></div>
         <img :src="divider" alt="" />
       </div>
@@ -393,6 +396,7 @@ onMounted(() => {
       the Free Open Source Philosophy inside and outside again welcome
     </p>
   </section>
+  <BureauSection />
   <section class="section faq">
     <Title class="title" text=">FAQ_⁉️" number="8" color="#e82b1f"></Title>
   </section>
@@ -464,7 +468,8 @@ onMounted(() => {
   animation-delay: 0.5s;
 }
 
-.open-source .left, .open-source .right {
+.open-source .left,
+.open-source .right {
   width: 40%;
   flex-wrap: wrap;
   justify-content: space-evenly;

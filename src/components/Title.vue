@@ -33,7 +33,7 @@ defineProps({
         <span>{{ number }}</span>
       </div>
     </div>
-    <h1>{{ text }}</h1>
+    <h1 class="title">{{ text }}</h1>
   </div>
 </template>
 
@@ -44,9 +44,6 @@ defineProps({
 }
 h1 {
   color: var(--title-color);
-  text-align: center;
-  font-size: 48px;
-  font-weight: 700;
   padding: 30px;
 }
 .top {
@@ -86,8 +83,8 @@ h1 {
   animation: slideDown .5s;
 }
 .animate-circle {
-  -webkit-animation: drawCircle .5s .5s forwards;
-  animation: drawCircle .5s .5s forwards;
+  -webkit-animation: drawCircle .5s .5s ease-in forwards;
+  animation: drawCircle .5s .5s ease-in forwards;
 }
 
 @keyframes slideDown {
@@ -103,8 +100,8 @@ h1 {
 
 @keyframes drawCircle {
   0% {
-    opacity: 0;
-    stroke-dashoffset: 290;
+    opacity: .5;
+    stroke-dashoffset: 310;
   }
   100% {
     opacity: 1;
