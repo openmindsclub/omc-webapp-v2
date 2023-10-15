@@ -57,3 +57,15 @@ img {
   font-size: 48px;
   font-weight: 700;
 }
+
+.section .description {
+  color: var(--color-grey);
+  text-align: center;
+  font-family: Ubuntu Mono;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.w-100 {
+  width: 100%;
+}

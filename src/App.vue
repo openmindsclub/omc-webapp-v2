@@ -6,6 +6,7 @@ import divider from "./assets/svg/divider.svg";
 import BureauSection from "./components/BureauSection.vue";
 import Hero from "./components/Hero.vue";
 import Navbar from "./components/Navbar.vue";
+import ActivitiesSection from "./components/ActivitiesSection.vue";
 
 // observer to run the animation everytime the title is in the view
 const observer = new IntersectionObserver((entries) => {
@@ -268,48 +269,7 @@ onMounted(() => {
       <br />the Free Open Source Philosophy inside and outside again welcome
     </p>
   </section>
-  <section class="section activities">
-    <div class="oval oval-right">
-      <svg viewBox="0 0 437 749" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_f_489_2145)">
-          <path
-            d="M555.772 547.638C674.33 539.645 751.729 495.093 827.041 391.492C979.611 181.614 88.8472 115.416 212.792 345.843C290.941 491.132 404.335 557.848 555.772 547.638Z"
-            fill="#F8AE28"
-            fill-opacity="0.15"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_f_489_2145"
-            x="0.917969"
-            y="0.92749"
-            width="1043.76"
-            height="747.727"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="100"
-              result="effect1_foregroundBlur_489_2145"
-            />
-          </filter>
-        </defs>
-      </svg>
-    </div>
-    <Title
-      class="title"
-      text=">Our Activities_🧩"
-      number="5"
-      color="#f8ae28"
-    ></Title>
-  </section>
+  <ActivitiesSection />
   <section class="section community">
     <div class="oval oval-left">
       <svg viewBox="0 0 505 803" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -417,13 +377,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
 }
-.section .description {
-  color: var(--color-grey);
-  text-align: center;
-  font-family: Ubuntu Mono;
-  font-size: 24px;
-  font-weight: 400;
-}
+
 .section .content {
   width: 100%;
 }
