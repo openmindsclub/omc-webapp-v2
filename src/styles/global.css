@@ -26,6 +26,7 @@ body,
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: var(--color-dark-blue);
+  font-weight: 400;
 }
 
 .d-flex {
@@ -68,4 +69,9 @@ img {
 
 .w-100 {
   width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

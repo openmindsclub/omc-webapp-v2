@@ -8,7 +8,7 @@ import Hero from "./components/Hero.vue";
 import Navbar from "./components/Navbar.vue";
 import ActivitiesSection from "./components/ActivitiesSection.vue";
 
-// observer to run the animation everytime the title is in the view
+// observer to run the animation everytime the element is in the view
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const line = entry.target.querySelector(".line");
@@ -26,6 +26,13 @@ const observer = new IntersectionObserver((entries) => {
       circle?.classList.add("animate-circle");
       circle?.classList.remove("hidden");
     }
+
+    const activitiesSection = entry.target.classList.contains("activities");
+    if (activitiesSection && entry.intersectionRatio > 0) {
+      const overlay = entry.target.querySelector(".branches-overlay");
+      overlay?.classList.add("animate");
+      // console.log(overlay)
+    }
   });
 });
 
@@ -39,6 +46,11 @@ onMounted(() => {
   dividers.forEach((el) => {
     observer.observe(el);
   });
+
+  const sections = document.querySelectorAll(".section");
+  sections.forEach((el) => {
+    observer.observe(el);
+  })
 });
 </script>
 
@@ -438,6 +450,7 @@ onMounted(() => {
 }
 
 .subtitle {
+  font-family: Ubuntu Mono;
   font-size: 32px;
   font-weight: 700;
 }
