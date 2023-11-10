@@ -129,7 +129,7 @@ function swipeLeft() {
           :key="index"
         >
           <div class="wrapper">
-            <img :src="`src/assets/images/${item.image}`" alt="" />
+            <img :src="`/images/${item.image}`" alt="" />
             <div class="content">
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
@@ -157,7 +157,7 @@ section.events {
 
 .slider-container {
   position: relative;
-  margin: 0 auto;
+  margin: 50px auto;
   width: 100%;
   height: 310px;
   overflow: hidden;
