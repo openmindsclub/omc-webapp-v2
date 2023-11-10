@@ -62,7 +62,7 @@ onMounted(() => {
 <template>
   <Navbar />
   <Hero />
-  <section class="section about">
+  <section class="section about" id="about">
     <div class="oval oval-right">
       <svg viewBox="0 0 437 749" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_f_489_2145)">
@@ -181,13 +181,13 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <EventsSections />
+  <EventsSections id="events"/>
   <PartnersSection />
-  <ActivitiesSection />
+  <ActivitiesSection id="activities"/>
   <CommunitySection />
   <TrustedBySection />
   <BureauSection />
-  <FAQSection />
+  <FAQSection id="FAQ" />
 </template>
 
 <style scoped>

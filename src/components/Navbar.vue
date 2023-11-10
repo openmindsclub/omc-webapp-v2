@@ -4,12 +4,12 @@
     <div class="menu-toggle" @click="toggleResponsiveMenu">
       <img id="icon" v-if="!isResponsive" src="../Images/open.svg" alt="Menu" />
       <img id="icon" v-else src="../Images/close.svg" alt="Close" />
-      <ul class="right-part" :class="{ open: isResponsive }">
-        <li><span>Home</span></li>
-        <li><span class="active">About Us</span> <img :src="Hand" alt="" /></li>
-        <li><span>Events</span> <img :src="Events" alt="" /></li>
-        <li><span>Projects</span> <img :src="Pazel" alt="" /></li>
-        <li><span>FAQ</span> <img :src="Qst" alt="" /></li>
+      <ul class="right-part d-flex fl-a-c" :class="{ open: isResponsive }">
+        <!-- <li><span>Home</span></li> -->
+        <li><a href="#about"><span>About Us</span> <img :src="Hand" alt="" /></a></li>
+        <li><a href="#events"><span>Events</span> <img :src="Events" alt="" /></a></li>
+        <li><a href="#activities"><span>Projects</span> <img :src="Pazel" alt="" /></a></li>
+        <li><a href="#FAQ"><span>FAQ</span> <img :src="Qst" alt="" /></a></li>
       </ul>
     </div>
   </nav>
@@ -23,24 +23,35 @@
   align-items: center;
   margin-left: 5%;
   margin-right: 5%;
-  width: auto;
+  /* width: auto; */
 }
 
+ul {
+  list-style-type: none;
+}
 .logo {
   width: 60px;
 }
-.right-part {
-  display: flex;
-}
 
+.right-part {
+  gap: 25px;
+}
 .right-part li {
+  white-space: nowrap;
+  position: relative;
   display: flex;
-  list-style: none;
-  padding: 25px;
+  align-items: center;
+  /* padding: 25px; */
   font-size: 20px;
   font-weight: 500;
   color: #fff;
-  position: relative;
+}
+.right-part li a {
+  display: flex;
+}
+.right-part li img {
+  /* display: inline; */
+  height: 20px;
 }
 
 span {
@@ -57,7 +68,7 @@ span {
 li::after {
   content: "";
   position: absolute;
-  bottom: 12px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 0px;
@@ -68,7 +79,7 @@ li::after {
 
 li:hover::after {
   background-color: #e82b1f;
-  width: 30%;
+  width: 50%;
 }
 
 .menu-toggle {
@@ -82,10 +93,6 @@ li:hover::after {
 .menu-toggle div {
   display: flex;
   align-items: center;
-}
-
-li img {
-  height: 20px;
 }
 
 @media (max-width: 950px) {
@@ -109,6 +116,7 @@ li img {
     margin-top: 40px;
     transform: translateX(100%);
     transition: transform 1.2s ease-in-out;
+    z-index: 100;
   }
   .right-part.open {
     transform: translateX(0);
