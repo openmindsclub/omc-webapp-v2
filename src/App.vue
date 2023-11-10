@@ -7,6 +7,7 @@ import BureauSection from "./components/BureauSection.vue";
 import Hero from "./components/Hero.vue";
 import Navbar from "./components/Navbar.vue";
 import ActivitiesSection from "./components/ActivitiesSection.vue";
+import EventsSections from "./components/EventsSections.vue";
 
 // observer to run the animation everytime the element is in the view
 const observer = new IntersectionObserver((entries) => {
@@ -148,8 +149,8 @@ onMounted(() => {
       number="2"
       color="#e82b1f"
     ></Title>
-    <div class="content d-flex">
-      <div class="left d-flex fl-col fl-j-c">
+    <div class="content d-flex fl-a-c fl-j-c">
+      <div class="left d-flex fl-col fl-j-sb">
         <div>
           <h2 class="subtitle">> Title of section 1</h2>
           <p>
@@ -171,59 +172,12 @@ onMounted(() => {
         <div class="divider"></div>
         <img :src="divider" alt="" />
       </div>
-      <div class="right"></div>
+      <div class="right">
+        <div class="card"></div>
+      </div>
     </div>
   </section>
-  <section class="section events">
-    <div class="oval oval-right">
-      <svg viewBox="0 0 499 803" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_f_429_1504)">
-          <path
-            d="M506.368 601.425C609.156 591.16 676.596 538.938 742.733 418.394C876.714 174.194 105.516 105.196 210.932 370.815C277.4 538.293 375.075 614.535 506.368 601.425Z"
-            fill="#48BD32"
-            fill-opacity="0.15"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_f_429_1504"
-            x="0.996094"
-            y="0.952393"
-            width="957.426"
-            height="801.914"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="100"
-              result="effect1_foregroundBlur_429_1504"
-            />
-          </filter>
-        </defs>
-      </svg>
-    </div>
-    <Title
-      class="title"
-      text=">Our Events_🎬"
-      number="3"
-      color="#49ac36"
-    ></Title>
-    <p class="description">
-      > welcome in omc website if u want to that aims to hilk <br />
-      promote the spirit of collaboration between students, sharing knowledge,
-      <br />the Free Open Source Philosophy inside and outside again welcome in
-      omc website if u want to that aims to hilk promote the spirit of
-      collaboration between students, sharing knowledge,the Free Open Source
-      Philosophy inside and outside
-    </p>
-  </section>
+  <EventsSections />
   <section class="section partners">
     <div class="oval oval-left">
       <svg viewBox="0 0 476 803" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -447,6 +401,13 @@ onMounted(() => {
   font-family: Ubuntu Mono;
   font-size: 20px;
   font-weight: 400;
+  gap: 80px;
+}
+.open-source .card {
+  width: 430px;
+  height: 280px;
+  background-color: #0D1117;
+  border-radius: 10px;
 }
 
 .subtitle {
