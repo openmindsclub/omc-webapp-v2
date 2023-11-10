@@ -264,7 +264,7 @@ h1 {
 }
 .card {
   position: absolute;
-  background-color: var(---color-black);
+  background-color: var(--color-black);
   border-radius: 15px;
   font-size: 16px;
   padding: 10px;
