@@ -5,7 +5,7 @@
     <h1>Open Minds Club</h1>
     <p>Where Open Source Minds Come Together.</p>
 
-    <div class="btns d-flex fl-j-c fl-a-c">
+    <div class="btns d-flex fl-j-c fl-a-c row">
       <a href="#" target=”_blank” class="reg-btn d-flex fl-a-c fl-j-c">
         <span>Register Now </span><img src="../Images/ArrowRight.svg" alt="" />
       </a>
@@ -144,7 +144,7 @@
   /* animation: typing 8s steps(50) forwards; */
 }
 
-/* @keyframes typing {
+@keyframes typing {
   0% {
     width: 0;
   }
@@ -152,18 +152,35 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 850px) {
+
+/* @media screen and (max-width: 850px) {
   .terminal {
     width: 80%;
   }
-}
-@media (max-width: 500px) {
+} */
+@media (max-width: 700px) {
   .hero h1 {
-    font-size: 48px;
+    font-size: 50px;
   }
 
-  .hero p {
-    font-size: 24px;
+  .hero > p {
+    font-size: 20px;
   }
-} */
+  .row {
+    flex-direction: column;
+  }
+  .terminal {
+    font-size: 12px;
+  }
+  .top-bar {
+    height: 26px;
+  }
+  .top-bar button {
+    width: 7px;
+    height: 7px;
+  }
+  .terminal-mode-btn {
+    display: none;
+  }
+}
 </style>

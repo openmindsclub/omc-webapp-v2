@@ -33,8 +33,8 @@ const members = [
     name: "Nad Tis",
     description: "Hello 👋 I'm the president.",
     image: image1,
-  }
-]
+  },
+];
 </script>
 
 <template>
@@ -290,5 +290,14 @@ h1 {
   font-size: 21px;
   font-weight: 500;
   color: var(--color-blue);
+}
+
+@media (max-width: 700px) {
+  .cards {
+    display: none;
+  }
+  .svg-container .title-container {
+    top: 0;
+  }
 }
 </style>

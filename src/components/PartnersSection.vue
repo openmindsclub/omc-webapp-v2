@@ -89,4 +89,14 @@ import Title from "./Title.vue";
 .card.mjs {
     padding: 20px;
 }
+
+@media (max-width: 700px) {
+  .cards {
+    gap: 3vw;
+  }
+  .card {
+    width: 30vw;
+    height: 30vw;
+  }
+}
 </style>

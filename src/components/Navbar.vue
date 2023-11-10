@@ -105,7 +105,7 @@ li:hover::after {
   }
   .right-part {
     position: fixed;
-    top: 90px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 50%;
@@ -113,10 +113,11 @@ li:hover::after {
     list-style: none;
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     transform: translateX(100%);
     transition: transform 1.2s ease-in-out;
     z-index: 100;
+    padding: 50px 0;
   }
   .right-part.open {
     transform: translateX(0);

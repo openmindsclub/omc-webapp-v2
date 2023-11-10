@@ -69,7 +69,7 @@ import Title from "./Title.vue";
   padding-top: 50px;
   color: white;
   font-size: 72px;
-  font-weight: 500;
+  font-weight: 800;
   justify-content: space-evenly;
   font-family: Ubuntu, sans-serif;
 }
@@ -85,5 +85,11 @@ import Title from "./Title.vue";
 .number:hover {
     scale: 1.1;
     cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .stats {
+    flex-direction: column;
+  }
 }
 </style>

@@ -7,7 +7,7 @@ const list = ref([
     question: "Why is Webflow the best nocode tool?",
     answer:
       "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
-    isOpen: false,
+    isOpen: true,
   },
   {
     question: "How to launch a Webflow website?",
@@ -115,5 +115,11 @@ function toggleAnswer(item) {
   border-radius: 8px;
   margin-left: 20px;
   cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
 }
 </style>

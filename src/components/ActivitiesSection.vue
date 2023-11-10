@@ -103,7 +103,7 @@ import Title from "../components/Title.vue";
       <div class="d-flex fl-a-c activity">
         <div class="card">
           <div class="image">
-            <img src="../assets/images/omc-blog.png" alt="" srcset="">
+            <img src="../assets/images/omc-blog.png" alt="" srcset="" />
           </div>
           <div class="body">
             <h3>OMC blog</h3>
@@ -118,10 +118,11 @@ import Title from "../components/Title.vue";
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <a href="#" class="link d-flex fl-a-c fl-j-c">Visit Now <img src="../assets/svg/arrow-right.svg" alt=""> </a>
+          <a href="#" class="link d-flex fl-a-c fl-j-c"
+            >Visit Now <img src="../assets/svg/arrow-right.svg" alt="" />
+          </a>
         </div>
       </div>
-      
       <div class="d-flex fl-a-c activity">
         <div>
           <h2 class="subtitle">> Title of section 1</h2>
@@ -131,11 +132,13 @@ import Title from "../components/Title.vue";
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <a href="#" class="link d-flex fl-a-c fl-j-c">Visit Now <img src="../assets/svg/arrow-right.svg" alt=""> </a>
+          <a href="#" class="link d-flex fl-a-c fl-j-c"
+            >Visit Now <img src="../assets/svg/arrow-right.svg" alt="" />
+          </a>
         </div>
         <div class="card">
           <div class="image">
-            <img src="../assets/images/omc-blog.png" alt="" srcset="">
+            <img src="../assets/images/omc-blog.png" alt="" srcset="" />
           </div>
           <div class="body">
             <h3>OMC blog</h3>
@@ -158,14 +161,16 @@ import Title from "../components/Title.vue";
 }
 .content .desc {
   position: relative;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   font-family: Ubuntu Mono;
   font-weight: 400;
   padding-top: 10px;
   padding-bottom: 20px;
 }
 
-#banches-svg, .branches-overlay {
+#banches-svg,
+.branches-overlay {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -184,7 +189,7 @@ import Title from "../components/Title.vue";
   width: 170px;
   height: 37px;
   padding: 16px, 24px, 16px, 24px;
-  border: 2px solid #7FADF4;
+  border: 2px solid #7fadf4;
   border-radius: 20px;
 }
 .link img {
@@ -193,12 +198,13 @@ import Title from "../components/Title.vue";
 
 .card {
   width: 498px;
-  min-width: 498px;
+  /* min-width: 498px; */
+  /* max-width: 100%; */
   height: 419px;
   border-radius: 14px;
   padding: 5px;
   font-size: 15px;
-  background-color: #1E1F21;
+  background-color: #1e1f21;
 }
 .card .image {
   width: 100%;
@@ -240,4 +246,33 @@ import Title from "../components/Title.vue";
   }
 }
 
+@media (max-width: 700px) {
+  .activity {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  .card {
+    width: 360px;
+    height: 260px;
+    /* max-width: 80vw;
+    max-height: 266px; */
+  }
+  .card .image {
+    height: 200px;
+  }
+  .card p {
+    display: none;
+  }
+  .subtitle {
+    font-size: 22px;
+  }
+  .content .desc {
+    font-size: 18px;
+  }
+  #banches-svg,
+  .branches-overlay {
+    display: none;
+  }
+}
 </style>

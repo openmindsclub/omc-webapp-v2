@@ -159,7 +159,7 @@ section.events {
   position: relative;
   margin: 50px auto;
   width: 100%;
-  height: 310px;
+  /* height: 310px; */
   overflow: hidden;
 }
 .slider-container button {
@@ -232,6 +232,19 @@ section.events {
   }
   100% {
     transform: translateX(calc(-4 * 400px));
+  }
+}
+
+@media (max-width: 700px) {
+  .slider .item {
+    width: 215px;
+    height: 146px;
+  }
+  .slider-container {
+    overflow-x: scroll;
+  }
+  .slider-container button {
+    display: none;
   }
 }
 </style>

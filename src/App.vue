@@ -12,6 +12,8 @@ import PartnersSection from "./components/PartnersSection.vue";
 import CommunitySection from "./components/CommunitySection.vue";
 import TrustedBySection from "./components/TrustedBySection.vue";
 import FAQSection from "./components/FAQSection.vue";
+import AboutSection from "./components/AboutSection.vue";
+import OpensourceSection from "./components/OpensourceSection.vue";
 
 // observer to run the animation everytime the element is in the view
 const observer = new IntersectionObserver((entries) => {
@@ -55,139 +57,26 @@ onMounted(() => {
   const sections = document.querySelectorAll(".section");
   sections.forEach((el) => {
     observer.observe(el);
-  })
+  });
 });
 </script>
 
 <template>
   <Navbar />
   <Hero />
-  <section class="section about" id="about">
-    <div class="oval oval-right">
-      <svg viewBox="0 0 437 749" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_f_489_2145)">
-          <path
-            d="M555.772 547.638C674.33 539.645 751.729 495.093 827.041 391.492C979.611 181.614 88.8472 115.416 212.792 345.843C290.941 491.132 404.335 557.848 555.772 547.638Z"
-            fill="#F8AE28"
-            fill-opacity="0.15"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_f_489_2145"
-            x="0.917969"
-            y="0.92749"
-            width="1043.76"
-            height="747.727"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="100"
-              result="effect1_foregroundBlur_489_2145"
-            />
-          </filter>
-        </defs>
-      </svg>
-    </div>
-    <Title
-      class="title"
-      text=">Get to Know Us!_👋"
-      number="1"
-      color="#f8ae28"
-    ></Title>
-    <p class="description">
-      > welcome in omc website if u want to that aims to hilk <br />
-      promote the spirit of collaboration between students, sharing
-      knowledge,<br />the Free Open Source Philosophy inside and outside again
-      welcome in omc website if u want to that aims to hilk promote the spirit
-      of collaboration between students, sharing knowledge,the Free Open Source
-      Philosophy inside and outside
-    </p>
-  </section>
-  <section class="section open-source">
-    <div class="oval oval-left">
-      <svg viewBox="0 0 506 749" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_f_429_1505)">
-          <path
-            d="M16.3381 547.638C134.897 539.645 212.295 495.093 287.608 391.492C440.177 181.614 -450.586 115.416 -326.642 345.843C-248.493 491.132 -135.099 557.848 16.3381 547.638Z"
-            fill="#E82B1F"
-            fill-opacity="0.19"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_f_429_1505"
-            x="-538.516"
-            y="0.92749"
-            width="1043.76"
-            height="747.727"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="100"
-              result="effect1_foregroundBlur_429_1505"
-            />
-          </filter>
-        </defs>
-      </svg>
-    </div>
-    <Title
-      class="title"
-      text=">Open Source?_🌐"
-      number="2"
-      color="#e82b1f"
-    ></Title>
-    <div class="content d-flex fl-a-c fl-j-c">
-      <div class="left d-flex fl-col fl-j-sb">
-        <div>
-          <h2 class="subtitle">> Title of section 1</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur <br />
-            adipiscing elit, sed do eiusmod tempor <br />
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <div>
-          <h2 class="subtitle">> Title of section 2</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur <br />
-            adipiscing elit, sed do eiusmod tempor <br />
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-      </div>
-      <div class="divider-container d-flex fl-j-c">
-        <div class="divider"></div>
-        <img :src="divider" alt="" />
-      </div>
-      <div class="right">
-        <div class="card"></div>
-      </div>
-    </div>
-  </section>
-  <EventsSections id="events"/>
+  <AboutSection />
+  <OpensourceSection />
+  <EventsSections id="events" />
   <PartnersSection />
-  <ActivitiesSection id="activities"/>
+  <ActivitiesSection id="activities" />
   <CommunitySection />
   <TrustedBySection />
   <BureauSection />
   <FAQSection id="FAQ" />
+
+  <footer>
+    Made with <span>&#10084;</span> by OMC 
+  </footer>
 </template>
 
 <style scoped>
@@ -205,12 +94,6 @@ onMounted(() => {
 .section .content {
   width: 100%;
 }
-.about {
-  background-image: url(./assets/images/members.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
-}
 .oval {
   position: absolute;
   top: -50px;
@@ -226,60 +109,13 @@ onMounted(() => {
   right: 0;
 }
 
-.hidden {
-  opacity: 0;
+footer {
+  margin-top: 50px;
+  color: white;
+  height: 100px;
+  text-align: center;
 }
-.show {
-  opacity: 1;
-}
-
-.divider-container {
-  position: relative;
-  height: 500px;
-  width: 20%;
-}
-.divider {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-dark-blue);
-}
-.animate-divider {
-  animation: slideDown1 ease-in-out 2s forwards;
-  animation-delay: 0.5s;
-}
-
-.open-source .left,
-.open-source .right {
-  width: 40%;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  color: #fff;
-  font-family: Ubuntu Mono;
-  font-size: 20px;
-  font-weight: 400;
-  gap: 80px;
-}
-.open-source .card {
-  width: 430px;
-  height: 280px;
-  background-color: #0D1117;
-  border-radius: 10px;
-}
-
-.subtitle {
-  font-family: Ubuntu Mono;
-  font-size: 32px;
-  font-weight: 700;
-}
-
-@keyframes slideDown1 {
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0;
-  }
+footer span {
+  color: red;
 }
 </style>
