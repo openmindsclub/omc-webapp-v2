@@ -11,6 +11,7 @@ import EventsSections from "./components/EventsSections.vue";
 import PartnersSection from "./components/PartnersSection.vue";
 import CommunitySection from "./components/CommunitySection.vue";
 import TrustedBySection from "./components/TrustedBySection.vue";
+import FAQSection from "./components/FAQSection.vue";
 
 // observer to run the animation everytime the element is in the view
 const observer = new IntersectionObserver((entries) => {
@@ -186,9 +187,7 @@ onMounted(() => {
   <CommunitySection />
   <TrustedBySection />
   <BureauSection />
-  <section class="section faq">
-    <Title class="title" text=">FAQ_⁉️" number="8" color="#e82b1f"></Title>
-  </section>
+  <FAQSection />
 </template>
 
 <style scoped>
