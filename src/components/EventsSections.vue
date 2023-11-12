@@ -128,7 +128,7 @@ function swipeLeft() {
           v-for="(item, index) in events"
           :key="index"
         >
-          <div class="wrapper">
+        <div class="item-wrapper" :style="{ transform: index % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)' }">
             <img :src="`/images/${item.image}`" alt="" />
             <div class="content">
               <h3>{{ item.title }}</h3>
@@ -137,12 +137,12 @@ function swipeLeft() {
           </div>
         </div>
       </div>
-      <button class="left" @click="swipeLeft()">
+      <!-- <button class="left" @click="swipeLeft()">
         <img src="../assets/svg/arrow-left.svg" alt="" />
       </button>
       <button class="right" @click="swipeWrite()">
         <img src="../assets/svg/arrow-right.svg" alt="" />
-      </button>
+      </button> -->
     </div>
   </section>
 </template>
@@ -150,6 +150,7 @@ function swipeLeft() {
 <style scoped>
 section.events {
   padding: 1em 0;
+  /* overflow: scroll; */
 }
 .content {
   padding: 0 5%;
@@ -179,7 +180,9 @@ section.events {
   right: 20px;
 }
 .slider {
-  width: calc(4 * -400px);
+  width: 100vw;
+    min-width: 100%;
+  /* width: calc(5 * 400px); */
   /* gap: 30px; */
   font-family: Ubuntu Mono;
   font-size: 20px;
@@ -188,19 +191,29 @@ section.events {
 }
 .slider .item {
   position: relative;
-  width: 370px;
-  height: 274px;
-  min-width: 370px;
-  max-width: 370px;
+  width: 25%;
+  min-width: 25%;
+  /* width: 670px; */
+  /* height: 274px; */
+  /* min-width: 370px; */
+  max-width: 25%;
   border-radius: 16px;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.slider .item .wrapper {
+.item-wrapper {
   width: calc(100% - 20px);
   height: calc(100% - 20px);
-  transform: rotate(3deg);
+  /* transform: rotate(3deg); */
 }
+
+.item-wrapper:nth-child(odd) {
+  /* transform: rotate(3deg); */
+}
+.item-wrapper:nth-child(even) {
+  /* transform: rotate(3deg); */
+}
+
 .slider .item .content {
   position: absolute;
   top: 0;
@@ -223,15 +236,20 @@ section.events {
   -webkit-animation: sliderScroll 24s linear infinite;
   animation: sliderScroll 24s linear infinite;
 }
-.slider-container:hover .slider {
+/* .slider-container:hover .slider {
   animation: none;
-}
+} */
+
+/* .item:hover {
+  transform: rotate(0deg);
+} */
+
 @keyframes sliderScroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-4 * 400px));
+    transform: translateX(-100%);
   }
 }
 
