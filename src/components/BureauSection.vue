@@ -300,6 +300,7 @@ const terminalMode = computed(() => appStore.terminalMode);
   text-align: center;
   color: #c4c4c4;
   font-size: 24px;
+  height: 100%;
 }
 h1 {
   color: var(--color-blue);
