@@ -122,8 +122,11 @@ li:hover::after {
   width: 50%;
 }
 
-select {
-  color: var(--color-blue);
+select, option {
+  padding: 0 5px;
+  border-radius: 4px;
+  /* color: var(--color-blue); */
+  background-color: var(--color-dark-blue);
 }
 
 @media (max-width: 950px) {

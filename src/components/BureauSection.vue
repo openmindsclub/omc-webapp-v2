@@ -7,6 +7,8 @@ import image1 from "../assets/images/nada.png";
 import { useAppStore } from "../store/store";
 import TerminalNavbar from "./TerminalNavbar.vue";
 
+import Avatar from "../assets/images/avatar.png"
+
 const svgRef = ref();
 const gradientStops = ref(0);
 function animateGradient(event) {
@@ -113,17 +115,17 @@ const terminalMode = computed(() => appStore.terminalMode);
 
       <div class="card member1">
         <h2>Nada Tis</h2>
-        <p>SG</p>
+        <p>Secrétaire Général</p>
       </div>
 
       <div class="card member2">
-        <h2>Nada Tis</h2>
-        <p>President</p>
+        <h2>Riaydh Bedjaoui</h2>
+        <p>Vice-President</p>
       </div>
 
       <div class="card member3">
-        <h2>Nada Tis</h2>
-        <p>Vice-president</p>
+        <h2>Aymen Ghemam</h2>
+        <p>President</p>
       </div>
 
       <svg
@@ -191,7 +193,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           y="50"
           width="81"
           height="81"
-          :xlink:href="members[1].image"
+          :xlink:href="Avatar"
           clip-path="url(#avatar-clip-3)"
           class="bureau-pic"
         />
@@ -201,7 +203,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           y="288"
           width="81"
           height="81"
-          :xlink:href="members[2].image"
+          :xlink:href="Avatar"
           clip-path="url(#avatar-clip-4)"
         /> -->
 
@@ -210,7 +212,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           y="350"
           width="81"
           height="81"
-          :xlink:href="members[3].image"
+          :xlink:href="Avatar"
           clip-path="url(#avatar-clip-2)"
           class="bureau-pic"
         />
@@ -325,6 +327,9 @@ h1 {
   font-size: 21px;
   font-weight: 500;
   color: var(--color-blue);
+}
+.card p {
+  padding: 10px;
 }
 
 .member1 {
