@@ -272,7 +272,7 @@ const terminalMode = computed(() => appStore.terminalMode);
 #bureau {
   padding: 0;
   /* overflow-y: auto; */
-  min-height: 100vh;
+  min-height: 110vh;
   position: relative;
 }
 .svg-container {
