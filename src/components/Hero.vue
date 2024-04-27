@@ -31,7 +31,7 @@ function jumpAnimation() {
         <span>{{ $t("button-register") }}</span><img src="../Images/ArrowRight.svg" alt="" />
       </button>
       <a
-        href="https://discord.gg/EXStpgZM"
+        href="https://discord.gg/auupT4xpmP"
         target="”_blank”"
         class="dis-btn d-flex fl-a-c fl-j-c"
       >
