@@ -17,14 +17,25 @@
     />
     <ul class="d-flex fl-a-c menu" :class="{ open: isOpen }">
       <li>
-        <a href="#about"><span>About Us</span> <img :src="Hand" alt="" /></a>
+        <select v-model="$i18n.locale">
+          <option
+            v-for="locale in $i18n.availableLocales"
+            :key="`locale-${locale}`"
+            :value="locale"
+          >
+            {{ locale }}
+          </option>
+        </select>
       </li>
       <li>
-        <a href="#events"><span>Events</span> <img :src="Events" alt="" /></a>
+        <a href="#about"><span>{{ $t('button-about') }}</span> <img :src="Hand" alt="" /></a>
+      </li>
+      <li>
+        <a href="#events"><span>{{ $t('button-events') }}</span> <img :src="Events" alt="" /></a>
       </li>
       <li>
         <a href="#activities"
-          ><span>Projects</span> <img :src="Pazel" alt=""
+          ><span>{{ $t('button-projects') }}</span> <img :src="Pazel" alt=""
         /></a>
       </li>
       <li>
@@ -57,14 +68,13 @@ ul {
 
 ul {
   width: 100%;
-  margin: 10px;
+  margin: 20px;
   padding-left: 50%;
-  display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   gap: 25px;
 }
-li {
+li, select {
   white-space: nowrap;
   position: relative;
   display: flex;
@@ -110,6 +120,10 @@ li::after {
 li:hover::after {
   background-color: #e82b1f;
   width: 50%;
+}
+
+select {
+  color: var(--color-blue);
 }
 
 @media (max-width: 950px) {

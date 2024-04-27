@@ -39,9 +39,12 @@ const terminalMode = computed(() => appStore.terminalMode);
         <span>{{ number }}</span>
       </div>
     </div>
-    <div class="title" :style="{justifyContent: terminalMode ? 'flex-start' : 'center'}">
+    <div
+      class="title"
+      :style="{ justifyContent: terminalMode ? 'flex-start' : 'center' }"
+    >
       <h1>{{ text }}</h1>
-      <span v-if="terminalMode" :style="{color}"
+      <span v-if="terminalMode" :style="{ color }"
         >_______________________________________________________________</span
       >
     </div>
@@ -90,13 +93,13 @@ h1 {
   transform: translate(-50%, -50%);
 }
 .animate-line {
-  -webkit-animation: slideDown 0.5s;
-  animation: slideDown 0.5s;
+  -webkit-animation: slideDown 0.5s ease-in-out;
+  animation: slideDown 0.5s ease-in-out;
 }
 .animate-circle {
-  stroke-dashoffset: 310;
-  /* -webkit-animation: drawCircle 0.5s 0.5s ease-in forwards; */
-  animation: drawCircle .2s 1s ease-in forwards;
+  stroke-dashoffset: 350;
+  -webkit-animation: drawCircle 0.5s ease-in-out 0.5s forwards;
+  animation: drawCircle 0.5s ease-in-out 0.5s forwards;
 }
 
 @keyframes slideDown {

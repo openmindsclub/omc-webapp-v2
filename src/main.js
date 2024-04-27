@@ -3,6 +3,9 @@ import "./styles/global.css";
 import App from "./App.vue";
 import { pinia } from "./store/store";
 import { createI18n } from "vue-i18n";
+import EN from "./lang/en.json";
+import FR from "./lang/fr.json";
+import AR from "./lang/ar.json";
 
 const app = createApp(App);
 app.use(pinia);
@@ -10,21 +13,9 @@ app.use(pinia);
 const i18n = createI18n({
   locale: "en",
   messages: {
-    en: {
-      message: {
-        hello: "hello world",
-      },
-    },
-    fr: {
-      message: {
-        hello: "Bonjour le monde",
-      },
-    },
-    ar: {
-      message: {
-        hello: "مرحبا بالعالم",
-      },
-    },
+    en: EN,
+    fr: FR,
+    // ar: AR,
   },
 });
 app.use(i18n);

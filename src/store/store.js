@@ -6,6 +6,7 @@ export const useAppStore = defineStore('app', {
   state: () => ({
     terminalMode: false,
     currentSection: 0,
+    locale: "en",
   }),
   actions: {
     setTerminalMode(mode) {

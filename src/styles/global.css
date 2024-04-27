@@ -78,6 +78,7 @@ img {
   font-family: Ubuntu Mono;
   font-size: 24px;
   font-weight: 400;
+  justify-content: center;
 }
 
 .w-100 {
@@ -99,7 +100,7 @@ a {
 
 /* smooth transition for all elements */
 * {
-  transition: all 0.3s ease;
+  animation: all 0.3s ease;
 }
 
 .blinker {

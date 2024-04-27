@@ -124,7 +124,7 @@ onMounted(() => {
         color="#49ac36"
       ></Title>
       <p class="description" :style="terminalMode ? { color: 'white' } : {}">
-        > Our events are regularly organized with a collaborative, informative, competitive and fun approach, providing a platform where we can share our knowledge and promote the free and open source philosophy to our attendees.
+        {{`> ${$t('desc-events')}`}}
       </p>
       <TerminalNavbar v-if="terminalMode" color="#49ac36" />
     </div>
@@ -166,6 +166,9 @@ section.events {
   /* overflow: scroll; */
 }
 .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   padding: 0 5%;
 }

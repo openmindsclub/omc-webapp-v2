@@ -99,8 +99,8 @@ const terminalMode = computed(() => appStore.terminalMode);
       @mousemove="animateGradient"
     >
       <div class="title-container d-flex fl-col fl-a-c">
-        <p>Meet</p>
-        <h1 class="title">Our Bureau</h1>
+        <p>{{ $t("meet") }}</p>
+        <h1 class="title">{{ $t("title-bureau") }}</h1>
         <img class="icon" :src="SuitIcon" alt="" srcset="" />
       </div>
 
@@ -272,7 +272,7 @@ const terminalMode = computed(() => appStore.terminalMode);
 #bureau {
   padding: 0;
   /* overflow-y: auto; */
-  /* min-height: auto; */
+  min-height: 100vh;
   position: relative;
 }
 .svg-container {

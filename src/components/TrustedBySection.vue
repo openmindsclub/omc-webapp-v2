@@ -40,13 +40,12 @@ import Title from "./Title.vue";
     </div>
     <Title
       class="title"
-      text=">Trusted By_✅"
+      :text="`> ${$t('title-trusted-by')}`"
       number="7"
       color="#49ac36"
     ></Title>
     <p class="description">
-      > The trust of our partners reflects our commitment to long-term, reliable
-      relationships.
+      {{ `> ${$t("desc-trusted-by")}` }}
     </p>
 
     <div class="cards d-flex fl-j-c fl-a-c">

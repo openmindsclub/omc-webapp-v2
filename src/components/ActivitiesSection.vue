@@ -45,13 +45,12 @@ const terminalMode = computed(() => appStore.terminalMode);
     </div>
     <Title
       class="title"
-      text=">Our Activities_🧩"
+      :text="`> ${$t('title-activities')}`"
       number="5"
       color="#f8ae28"
     ></Title>
     <p class="description" :style="terminalMode ? { color: 'white' } : {}">
-      > The club's objectives are achieved through the organization of various
-      activities, which can be summarized as follows:
+      {{ `> ${$t("desc-activities")}` }}
     </p>
 
     <div class="content w-100 d-flex fl-col fl-j-sb">
@@ -118,11 +117,9 @@ const terminalMode = computed(() => appStore.terminalMode);
           </div>
         </div>
         <div>
-          <h2 class="subtitle">> Workshops and tutorials!</h2>
+          <h2 class="subtitle">{{ `> ${$t("title-workshops-tuto")}` }}</h2>
           <p class="desc">
-            The club's spirit of sharing is brought to life through training
-            sessions and workshops run by experienced students and graduates
-            eager to share their knowledge in any field.
+            {{ `> ${$t("desc-open-wiki")}` }}
           </p>
           <!-- <a href="#" class="link d-flex fl-a-c fl-j-c"
             >Visit Now <img src="../assets/svg/arrow-right.svg" alt="" />
@@ -131,11 +128,9 @@ const terminalMode = computed(() => appStore.terminalMode);
       </div>
       <div class="d-flex fl-a-c activity activity-2">
         <div>
-          <h2 class="subtitle">> Open Wiki</h2>
+          <h2 class="subtitle">{{ `> ${$t("title-open-wiki")}` }}</h2>
           <p class="desc">
-            The community is dedicated to the exchange and collaboration of
-            knowledge. Open Wiki, a platform developed by the club, facilitates
-            knowledge sharing and encourages open source contributions.
+            {{ `> ${$t("desc-open-wiki")}` }}
           </p>
           <a
             href="https://wiki.openmindsclub.net/"
@@ -149,7 +144,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           </div>
           <div class="body">
             <h3>Open Wiki</h3>
-            <p>Welcome to the Free Open Source Wiki !</p>
+            <!-- <p>Welcome to the Free Open Source Wiki !</p> -->
           </div>
         </div>
       </div>
@@ -229,6 +224,7 @@ const terminalMode = computed(() => appStore.terminalMode);
   font-family: Ubuntu Mono;
   font-size: 32px;
   font-weight: 700;
+  text-align: left
 }
 
 .branches-overlay {

@@ -55,7 +55,7 @@ const terminalMode = computed(() => appStore.terminalMode);
     </div>
     <Title
       class="title"
-      text=">Our Partners_🤝"
+      :text="`> ${$t('title-partners')}`"
       number="4"
       color="#3173bb"
     ></Title>

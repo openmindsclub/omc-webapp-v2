@@ -40,25 +40,25 @@ import Title from "./Title.vue";
     </div>
     <Title
       class="title"
-      text=">Our Community_🕸️"
+      :text="`> ${$t('title-community')}`"
       number="6"
       color="#e82b1f"
     ></Title>
 
-    <p class="description">Here's an overview of our successes and impact.</p>
+    <p class="description">{{ `> ${$t("desc-community")}` }}</p>
 
     <div class="stats w-100 d-flex">
       <div class="number d-flex fl-col fl-j-c fl-a-c">
-        <p>1k<span>+</span></p>
-        <p class="description">Community</p>
+        <p>41k<span>+</span></p>
+        <p class="description">{{ $t("community") }}</p>
       </div>
       <div class="number d-flex fl-col fl-j-c fl-a-c">
-        <p>22<span>+</span></p>
-        <p class="description">Events</p>
+        <p>40<span>+</span></p>
+        <p class="description">{{ $t("events") }}</p>
       </div>
       <div class="number d-flex fl-col fl-j-c fl-a-c">
-        <p>111<span>+</span></p>
-        <p class="description">Engagement</p>
+        <p>400<span>+</span></p>
+        <p class="description">{{ $t("engagement") }}</p>
       </div>
     </div>
   </section>
@@ -83,8 +83,8 @@ import Title from "./Title.vue";
 }
 
 .number:hover {
-    scale: 1.1;
-    cursor: pointer;
+  scale: 1.1;
+  cursor: pointer;
 }
 
 @media (max-width: 700px) {

@@ -47,12 +47,12 @@ const terminalMode = computed(() => appStore.terminalMode);
     </div>
     <Title
       class="title"
-      text=">Get to Know Us!_👋"
+      :text="`>${ $t('button-about') }`"
       number="1"
       color="#f8ae28"
     ></Title>
     <p class="description" :style="terminalMode ? { color: 'white', maxWidth: '95%' } : {}">
-      >The Open Minds club is a student scientific club at the USTHB created in 2009. Its primary goal is to foster a spirit of sharing and collaboration among students and to promote the Open Source philosophy. 
+      {{ `> ${$t('desc-about-us')}` }}
     </p>
     <TerminalNavbar v-if="terminalMode" color="#f8ae28" />
     <br>
