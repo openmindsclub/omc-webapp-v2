@@ -1,17 +1,23 @@
 <script setup>
+import { computed } from "vue";
+import { useAppStore } from "../store/store";
+
 defineProps({
   number: Number,
   text: String,
   color: String,
 });
+
+const appStore = useAppStore();
+const terminalMode = computed(() => appStore.terminalMode);
 </script>
 
 <template>
   <div
     class="container d-flex fl-col fl-a-c"
-    :style="{ '--title-color': color }"
+    :style="{ '--title-color': color, paddingTop: terminalMode ? 0 : '170px' }"
   >
-    <div class="top d-flex fl-col fl-a-c">
+    <div v-if="!terminalMode" class="top d-flex fl-col fl-a-c">
       <div class="line hidden"></div>
       <div class="number hidden d-flex fl-j-c fl-a-c">
         <svg
@@ -33,7 +39,12 @@ defineProps({
         <span>{{ number }}</span>
       </div>
     </div>
-    <h1 class="title">{{ text }}</h1>
+    <div class="title" :style="{justifyContent: terminalMode ? 'flex-start' : 'center'}">
+      <h1>{{ text }}</h1>
+      <span v-if="terminalMode" :style="{color}"
+        >_______________________________________________________________</span
+      >
+    </div>
   </div>
 </template>
 
@@ -79,12 +90,13 @@ h1 {
   transform: translate(-50%, -50%);
 }
 .animate-line {
-  -webkit-animation: slideDown .5s;
-  animation: slideDown .5s;
+  -webkit-animation: slideDown 0.5s;
+  animation: slideDown 0.5s;
 }
 .animate-circle {
-  -webkit-animation: drawCircle .5s .5s ease-in forwards;
-  animation: drawCircle .5s .5s ease-in forwards;
+  stroke-dashoffset: 310;
+  /* -webkit-animation: drawCircle 0.5s 0.5s ease-in forwards; */
+  animation: drawCircle .2s 1s ease-in forwards;
 }
 
 @keyframes slideDown {
@@ -100,8 +112,8 @@ h1 {
 
 @keyframes drawCircle {
   0% {
-    opacity: .5;
-    stroke-dashoffset: 310;
+    opacity: 0;
+    stroke-dashoffset: 350;
   }
   100% {
     opacity: 1;

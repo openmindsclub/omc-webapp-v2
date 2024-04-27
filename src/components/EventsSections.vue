@@ -1,6 +1,8 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import Title from "./Title.vue";
+import { useAppStore } from "../store/store";
+import TerminalNavbar from "./TerminalNavbar.vue";
 
 const events = [
   {
@@ -47,25 +49,35 @@ const events = [
   },
 ];
 
-const slider = ref();
-const currentTransformX = ref(0);
+const appStore = useAppStore();
+const terminalMode = computed(() => appStore.terminalMode);
 
-function swipeWrite() {
-  if (currentTransformX.value >= 0) {
-    currentTransformX.value = -4 * 370;
+const slider = ref();
+const currentIndex = ref(0);
+const itemWidth = ref(0);
+
+function slideLeft() {
+  if (currentIndex.value > 0) {
+    currentIndex.value--;
+    updateSliderPosition();
   }
-  currentTransformX.value += 370;
-  //   const x = Math.min(0, currentTransformX);
-  slider.value.style.transform = `translateX(${currentTransformX.value}px)`;
 }
-function swipeLeft() {
-  if (currentTransformX.value <= -4 * 370) {
-    currentTransformX.value = 0;
+
+function slideRight() {
+  if (currentIndex.value < events.length - 1 - 3) {
+    currentIndex.value++;
+    updateSliderPosition();
   }
-  currentTransformX.value -= 370;
-  //   const x = Math.max(-4 * 400, currentTransformX);
-  slider.value.style.transform = `translateX(${currentTransformX.value}px)`;
 }
+
+function updateSliderPosition() {
+  const offset = -currentIndex.value * itemWidth.value;
+  slider.value.style.transform = `translateX(${offset}px)`;
+}
+
+onMounted(() => {
+  itemWidth.value = slider.value.clientWidth / 4;
+});
 </script>
 
 <template>
@@ -111,14 +123,10 @@ function swipeLeft() {
         number="3"
         color="#49ac36"
       ></Title>
-      <p class="description">
-        > welcome in omc website if u want to that aims to hilk <br />
-        promote the spirit of collaboration between students, sharing knowledge,
-        <br />the Free Open Source Philosophy inside and outside again welcome
-        in omc website if u want to that aims to hilk promote the spirit of
-        collaboration between students, sharing knowledge,the Free Open Source
-        Philosophy inside and outside
+      <p class="description" :style="terminalMode ? { color: 'white' } : {}">
+        > Our events are regularly organized with a collaborative, informative, competitive and fun approach, providing a platform where we can share our knowledge and promote the free and open source philosophy to our attendees.
       </p>
+      <TerminalNavbar v-if="terminalMode" color="#49ac36" />
     </div>
 
     <div class="slider-container">
@@ -128,7 +136,12 @@ function swipeLeft() {
           v-for="(item, index) in events"
           :key="index"
         >
-        <div class="item-wrapper" :style="{ transform: index % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)' }">
+          <div
+            class="item-wrapper"
+            :style="{
+              transform: index % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
+            }"
+          >
             <img :src="`/images/${item.image}`" alt="" />
             <div class="content">
               <h3>{{ item.title }}</h3>
@@ -137,10 +150,10 @@ function swipeLeft() {
           </div>
         </div>
       </div>
-      <!-- <button class="left" @click="swipeLeft()">
+      <!-- <button class="left" @click="slideLeft()">
         <img src="../assets/svg/arrow-left.svg" alt="" />
       </button>
-      <button class="right" @click="swipeWrite()">
+      <button class="right" @click="slideRight()">
         <img src="../assets/svg/arrow-right.svg" alt="" />
       </button> -->
     </div>
@@ -153,6 +166,7 @@ section.events {
   /* overflow: scroll; */
 }
 .content {
+  width: 100%;
   padding: 0 5%;
 }
 
@@ -180,22 +194,17 @@ section.events {
   right: 20px;
 }
 .slider {
-  width: 100vw;
-    min-width: 100%;
-  /* width: calc(5 * 400px); */
-  /* gap: 30px; */
+  min-width: 100vw;
   font-family: Ubuntu Mono;
   font-size: 20px;
   font-weight: 700;
   color: white;
+  /* overflow-x: scroll; */
 }
 .slider .item {
   position: relative;
   width: 25%;
   min-width: 25%;
-  /* width: 670px; */
-  /* height: 274px; */
-  /* min-width: 370px; */
   max-width: 25%;
   border-radius: 16px;
   background-repeat: no-repeat;
@@ -204,14 +213,6 @@ section.events {
 .item-wrapper {
   width: calc(100% - 20px);
   height: calc(100% - 20px);
-  /* transform: rotate(3deg); */
-}
-
-.item-wrapper:nth-child(odd) {
-  /* transform: rotate(3deg); */
-}
-.item-wrapper:nth-child(even) {
-  /* transform: rotate(3deg); */
 }
 
 .slider .item .content {
@@ -225,6 +226,7 @@ section.events {
   flex-direction: column;
   justify-content: end;
   background-color: rgba(0, 0, 0, 0.3);
+  text-align: left;
 }
 .slider img {
   width: 100%;
@@ -232,18 +234,16 @@ section.events {
   object-fit: cover;
 }
 
+/* make the slider scroll infinitely slowly */
 .slider {
-  -webkit-animation: sliderScroll 24s linear infinite;
   animation: sliderScroll 24s linear infinite;
 }
-/* .slider-container:hover .slider {
-  animation: none;
-} */
 
-/* .item:hover {
-  transform: rotate(0deg);
-} */
-
+.item p {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
 @keyframes sliderScroll {
   0% {
     transform: translateX(0);
@@ -253,16 +253,22 @@ section.events {
   }
 }
 
-@media (max-width: 700px) {
-  .slider .item {
-    width: 215px;
-    height: 146px;
-  }
-  .slider-container {
+@media (max-width: 900px) {
+  .slider {
+    width: 200vw;
+    height: 150px;
+    height: auto;
+    font-size: 15px;
     overflow-x: scroll;
   }
-  .slider-container button {
-    display: none;
+
+  @keyframes sliderScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100vw);
+    }
   }
 }
 </style>

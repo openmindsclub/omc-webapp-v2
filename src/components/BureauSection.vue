@@ -1,9 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import Title from "../components/Title.vue";
 import SuitIcon from "../assets/svg/suit.svg";
 
 import image1 from "../assets/images/nada.png";
+import { useAppStore } from "../store/store";
+import TerminalNavbar from "./TerminalNavbar.vue";
 
 const svgRef = ref();
 const gradientStops = ref(0);
@@ -35,11 +37,21 @@ const members = [
     image: image1,
   },
 ];
+
+const appStore = useAppStore();
+const terminalMode = computed(() => appStore.terminalMode);
 </script>
 
 <template>
   <section id="bureau" class="section">
-    <Title class="title" text="" number="1" color="#3173BB"></Title>
+    <Title
+      class="title"
+      :text="terminalMode ? '>Our Board_' : ''"
+      number="1"
+      color="#3173BB"
+    ></Title>
+    <p class="description"></p>
+    <TerminalNavbar v-if="terminalMode" color="#3173BB" />
     <div class="oval">
       <svg
         width="894"
@@ -92,11 +104,26 @@ const members = [
         <img class="icon" :src="SuitIcon" alt="" srcset="" />
       </div>
 
-      <div class="cards">
+      <!-- <div class="cards">
         <div class="card" v-for="member in members">
           <h2>{{ member.name }}</h2>
           <p>{{ member.description }}</p>
         </div>
+      </div> -->
+
+      <div class="card member1">
+        <h2>Nada Tis</h2>
+        <p>SG</p>
+      </div>
+
+      <div class="card member2">
+        <h2>Nada Tis</h2>
+        <p>President</p>
+      </div>
+
+      <div class="card member3">
+        <h2>Nada Tis</h2>
+        <p>Vice-president</p>
       </div>
 
       <svg
@@ -105,6 +132,7 @@ const members = [
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
+        class="members-svg"
       >
         <path
           d="M203.178 79.0636C203.178 79.0636 200.578 148.374 205.56 157.571C210.542 166.769 221.939 178.154 223.495 178.5C228 179.5 258 177 268 178.5C278 180 285.5 189 289.684 198.812C293.867 208.624 295.286 224 295.286 224M295.655 250.338C295.655 250.338 299.973 272.716 312.594 278.081C325.215 283.446 331.193 282.68 331.193 282.68H483.643C483.643 282.68 603.171 283.85 604.5 285C605.829 286.15 614.172 284.979 624.468 299.159C634.764 313.339 634.764 342.082 634.764 342.082M634.764 342.082V408M634.764 342.082C634.764 342.082 639.746 319.471 648.381 312.19C657.017 304.908 676.613 306.824 676.613 306.824H774.592H828.564H882.536H925.712C925.712 306.824 942.984 304.141 958.594 291.495C974.204 278.848 974.204 256.62 974.204 256.62M974.204 264V220.255V192.273M1026.68 73.5577C1026.68 73.5577 1027.35 86.636 1024.02 97.75C1020.7 108.864 1005.42 115.445 1005.42 115.445C1005.42 115.445 984.168 130.242 980.182 135.99C976.197 141.739 974.204 162.62 974.204 162.62V192.273M974.204 192.273C974.204 192.273 960.406 192.247 952.948 187.674C943.43 181.839 940.326 179.626 935.344 163.147C930.362 146.668 932.023 130.955 932.023 130.955V15M295.909 251.5L295.224 223.39"
@@ -155,6 +183,7 @@ const members = [
           height="81"
           :xlink:href="members[0].image"
           clip-path="url(#avatar-clip-1)"
+          class="bureau-pic"
         />
 
         <image
@@ -164,39 +193,46 @@ const members = [
           height="81"
           :xlink:href="members[1].image"
           clip-path="url(#avatar-clip-3)"
+          class="bureau-pic"
         />
 
-        <image
+        <!-- <image
           x="186"
           y="288"
           width="81"
           height="81"
           :xlink:href="members[2].image"
           clip-path="url(#avatar-clip-4)"
-        />
+        /> -->
 
         <image
-          x="982.5"
-          y="311"
+          x="600"
+          y="350"
           width="81"
           height="81"
           :xlink:href="members[3].image"
           clip-path="url(#avatar-clip-2)"
+          class="bureau-pic"
         />
 
+        <!-- show the member name under the image -->
+        <!-- <text x="164.5" y="100" fill="#C4C4C4" font-size="16">Nada Tis 1</text>
+        <text x="901.5" y="150" fill="#C4C4C4" font-size="16">Nada Tis</text>
+        <text x="600" y="450" fill="#C4C4C4" font-size="16">Nada Tis</text> -->
+
         <defs>
-          <clipPath id="avatar-clip-1">
-            <circle cx="205" cy="41" r="40.5" />
+          <!-- <clipPath id="avatar-clip-1">
+            <circle cx="205" cy="41" r="40.5" class="bureau-pic" />
           </clipPath>
           <clipPath id="avatar-clip-2">
-            <circle cx="1023" cy="351.5" r="40.5" />
+            <circle cx="640.5" cy="395.5" r="40.5" class="bureau-pic" />
           </clipPath>
           <clipPath id="avatar-clip-3">
-            <circle cx="942" cy="90.5" r="40.5" />
-          </clipPath>
-          <clipPath id="avatar-clip-4">
+            <circle cx="942" cy="90.5" r="40.5" class="bureau-pic" />
+          </clipPath> -->
+          <!-- <clipPath id="avatar-clip-4">
             <circle cx="226.5" cy="328.588" r="40.5" />
-          </clipPath>
+          </clipPath> -->
 
           <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop
@@ -228,12 +264,23 @@ const members = [
 </template>
 
 <style scoped>
+/* init a variable for the images width */
+:root {
+  --image-width: 80;
+}
+
 #bureau {
   padding: 0;
+  /* overflow-y: auto; */
+  /* min-height: auto; */
+  position: relative;
 }
 .svg-container {
   width: 100%;
+  margin-top: 50px;
   position: relative;
+  max-height: 510px;
+  /* padding-bottom: 50px; */
 }
 .svg-container:hover path {
   stroke: url(#gradient1);
@@ -247,6 +294,9 @@ const members = [
 .svg-container .title-container {
   position: absolute;
   top: 20%;
+  left: 50%;
+  transform: translatex(-50%);
+  /* padding-bottom: 50%; */
   text-align: center;
   color: #c4c4c4;
   font-size: 24px;
@@ -258,10 +308,10 @@ h1 {
 .icon {
   width: 40px;
 }
-.cards {
+/* .cards {
   position: absolute;
   inset: 0 0;
-}
+} */
 .card {
   position: absolute;
   background-color: var(--color-black);
@@ -270,34 +320,46 @@ h1 {
   padding: 10px;
   color: #fff;
 }
-.card:nth-child(1) {
-  top: 90px;
-  left: 10px;
-}
-.card:nth-child(2) {
-  top: 90px;
-  right: 10px;
-}
-.card:nth-child(3) {
-  bottom: 90px;
-  left: 10px;
-}
-.card:nth-child(4) {
-  bottom: 90px;
-  right: 10px;
-}
 .card h2 {
   font-size: 21px;
   font-weight: 500;
   color: var(--color-blue);
 }
 
+.member1 {
+  top: -40px;
+  left: 7vw;
+}
+.member2 {
+  top: -20px;
+  right: 17vw;
+}
+.member3 {
+  top: 92%;
+  left: 40vw;
+}
+
+.members-svg {
+  min-height: 200px;
+  /* padding: 0 10% */
+}
+
+text {
+  padding: 10px;
+  background-color: red;
+}
+
 @media (max-width: 700px) {
-  .cards {
-    display: none;
+  #bureau {
+    padding: 0;
   }
   .svg-container .title-container {
     top: 0;
+  }
+
+  image.bureau-pic {
+    width: 200px;
+    height: 200px;
   }
 }
 </style>

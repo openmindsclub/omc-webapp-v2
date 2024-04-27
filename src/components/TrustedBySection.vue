@@ -45,10 +45,8 @@ import Title from "./Title.vue";
       color="#49ac36"
     ></Title>
     <p class="description">
-      > welcome in omc website if u want to that aims to hilk <br />
-      promote the spirit of collaboration between students, sharing knowledge,
-      <br />
-      the Free Open Source Philosophy inside and outside again welcome
+      > The trust of our partners reflects our commitment to long-term, reliable
+      relationships.
     </p>
 
     <div class="cards d-flex fl-j-c fl-a-c">

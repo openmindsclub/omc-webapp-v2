@@ -1,4 +1,25 @@
-<script setup></script>
+<script setup>
+import { computed, ref } from "vue";
+import { useAppStore } from "../store/store";
+import { setTerminalMode } from "../helpers/store";
+import WindowBar from "./WindowBar.vue";
+
+const appStore = useAppStore();
+const terminalMode = computed(() => appStore.terminalMode);
+
+function toggleDisplay() {
+  setTerminalMode(true);
+}
+
+// when clicking the little tux icon, I want it to jump up and down for a little bit
+function jumpAnimation() {
+  const tux = document.querySelector(".tux");
+  tux.classList.add("jump");
+  setTimeout(() => {
+    tux.classList.remove("jump");
+  }, 1000);
+}
+</script>
 
 <template>
   <section class="section hero d-flex fl-col fl-j-c fl-a-c">
@@ -6,30 +27,35 @@
     <p>Where Open Source Minds Come Together.</p>
 
     <div class="btns d-flex fl-j-c fl-a-c row">
-      <a href="#" target=”_blank” class="reg-btn d-flex fl-a-c fl-j-c">
+      <button class="reg-btn d-flex fl-a-c fl-j-c" disabled>
         <span>Register Now </span><img src="../Images/ArrowRight.svg" alt="" />
-      </a>
-      <a href="https://discord.gg/EXStpgZM" target=”_blank” class="dis-btn d-flex fl-a-c fl-j-c">
+      </button>
+      <a
+        href="https://discord.gg/EXStpgZM"
+        target="”_blank”"
+        class="dis-btn d-flex fl-a-c fl-j-c"
+      >
         <span>Join Discord</span><img src="../Images/discord.svg" alt="" />
       </a>
     </div>
 
     <div class="terminal-wrapper">
-      <div class="top-bar d-flex fl-a-c">
-        <button class="close"></button>
-        <button class="minimize"></button>
-        <button class="maximize"></button>
-      </div>
+      <WindowBar />
       <div class="terminal">
-        <p>
-          [user @openminds]$ hi again welcome in omc website if u want to that
-          aims to hilk
-        </p>
-        <p>pro the spirit of collaboration between students, sharing knowledge,the
-          Free Open Source Philosophy inside and outside again w</p>
+        <p>[user @openminds]$ welcome to the Open Minds Club website <br /></p>
+        <!-- blinker -->
+        <p>[user @openminds]$ <span class="blinker"></span></p>
         <div class="bottom d-flex fl-col fl-a-c fl-j-c">
-          <img class="tux" src="../assets/svg/tux.svg" alt="" srcset="">
-          <p class="terminal-mode-btn">[Click for a Terminal Experience]</p>
+          <img
+            @click="jumpAnimation"
+            class="tux"
+            src="../assets/svg/tux.svg"
+            alt=""
+            srcset=""
+          />
+          <p @click="toggleDisplay" class="terminal-mode-btn">
+            [Click for a Terminal Experience]
+          </p>
         </div>
       </div>
     </div>
@@ -39,6 +65,10 @@
 <style scoped>
 .hero {
   color: white;
+  /* background-image: url(../assets/svg/bg.svg);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center; */
 }
 .hero h1 {
   font-size: 80px;
@@ -63,7 +93,7 @@
   gap: 10px;
 }
 
-.hero .btns a {
+.btns a, .btns button  {
   height: 48px;
   gap: 10px;
   padding: 0 40px;
@@ -72,6 +102,9 @@
   border: 2px solid #3173bb;
   cursor: pointer;
   color: #fff;
+}
+.hero .btns a:hover {
+  border-color: white;
 }
 .hero .btns img {
   width: 20px;
@@ -88,41 +121,25 @@
 }
 .reg-btn {
   background-color: rgba(0, 0, 0, 0);
+  opacity: .5;
+  cursor: not-allowed;
+  cursor: cell;
 }
 
 .terminal-wrapper {
   margin-top: 50px;
   width: 100%;
   max-width: 850px;
+  padding-bottom: 50px;
   border-radius: 12px;
-}
-.top-bar {
-  height: 48px;
-  background-color: #13181e;
-  border-radius: 12px 12px 0 0;
-  padding: 0 20px;
-}
-.top-bar button {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin: 0 2px;
-  border: none;
-}
-.top-bar .close {
-  background-color: #ff6059;
-}
-.top-bar .minimize {
-  background-color: #ffbd2e;
-}
-.top-bar .maximize {
-  background-color: #29ca42;
+  background-color: var(--color-dark-blue);
+  box-shadow: -22px 24px 9px 0px rgba(29, 30, 32, 0.22);
 }
 
 .terminal {
   padding: 30px;
   font-size: 20px;
-  font-family: 'Overpass Mono', 'Ubuntu Mono', monospace;
+  font-family: "Overpass Mono", "Ubuntu Mono", monospace;
 }
 .terminal .bottom {
   margin-top: 20px;
@@ -132,9 +149,12 @@
   width: 95px;
   object-fit: contain;
 }
-.terminal .terminal-mode-btn {
+.terminal-mode-btn {
   cursor: pointer;
   font-size: 16px;
+}
+.terminal-mode-btn:hover {
+  color: var(--color-blue);
 }
 
 .terminal > p {
@@ -142,6 +162,22 @@
   /* overflow: hidden; */
   /* border-right: 0.15em solid #fff; */
   /* animation: typing 8s steps(50) forwards; */
+}
+
+.jump {
+  animation: jump 0.5s ease;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes typing {
@@ -171,13 +207,6 @@
   }
   .terminal {
     font-size: 12px;
-  }
-  .top-bar {
-    height: 26px;
-  }
-  .top-bar button {
-    width: 7px;
-    height: 7px;
   }
   .terminal-mode-btn {
     display: none;

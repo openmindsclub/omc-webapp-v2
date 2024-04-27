@@ -45,7 +45,7 @@ import Title from "./Title.vue";
       color="#e82b1f"
     ></Title>
 
-    <p class="description">Lorem ipsum dolor sit amet, consectetur.</p>
+    <p class="description">Here's an overview of our successes and impact.</p>
 
     <div class="stats w-100 d-flex">
       <div class="number d-flex fl-col fl-j-c fl-a-c">

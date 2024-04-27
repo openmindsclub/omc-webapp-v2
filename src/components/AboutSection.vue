@@ -1,5 +1,12 @@
 <script setup>
-import Title from './Title.vue';
+import { computed } from "vue";
+import { useAppStore } from "../store/store";
+import Title from "./Title.vue";
+import TerminalNavbar from "./TerminalNavbar.vue";
+import FooterSvg from "../assets/svg/footer.svg"
+
+const appStore = useAppStore();
+const terminalMode = computed(() => appStore.terminalMode);
 </script>
 
 <template>
@@ -44,21 +51,18 @@ import Title from './Title.vue';
       number="1"
       color="#f8ae28"
     ></Title>
-    <p class="description">
-      > welcome in omc website if u want to that aims to hilk <br />
-      promote the spirit of collaboration between students, sharing
-      knowledge,<br />the Free Open Source Philosophy inside and outside again
-      welcome in omc website if u want to that aims to hilk promote the spirit
-      of collaboration between students, sharing knowledge,the Free Open Source
-      Philosophy inside and outside
+    <p class="description" :style="terminalMode ? { color: 'white', maxWidth: '95%' } : {}">
+      >The Open Minds club is a student scientific club at the USTHB created in 2009. Its primary goal is to foster a spirit of sharing and collaboration among students and to promote the Open Source philosophy. 
     </p>
+    <TerminalNavbar v-if="terminalMode" color="#f8ae28" />
+    <br>
   </section>
 </template>
 
 <style scoped>
 .about {
   background-image: url(../assets/images/members.png);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
 }
@@ -67,5 +71,6 @@ import Title from './Title.vue';
   .about {
     background-position: center 80%;
   }
+
 }
 </style>

@@ -1,17 +1,36 @@
 <template>
   <nav class="navbar">
     <img class="logo" :src="omclogo" alt="" />
-    <div class="menu-toggle" @click="toggleResponsiveMenu">
-      <img id="icon" v-if="!isResponsive" src="../Images/open.svg" alt="Menu" />
-      <img id="icon" v-else src="../Images/close.svg" alt="Close" />
-      <ul class="right-part d-flex fl-a-c" :class="{ open: isResponsive }">
-        <!-- <li><span>Home</span></li> -->
-        <li><a href="#about"><span>About Us</span> <img :src="Hand" alt="" /></a></li>
-        <li><a href="#events"><span>Events</span> <img :src="Events" alt="" /></a></li>
-        <li><a href="#activities"><span>Projects</span> <img :src="Pazel" alt="" /></a></li>
-        <li><a href="#FAQ"><span>FAQ</span> <img :src="Qst" alt="" /></a></li>
-      </ul>
-    </div>
+    <img
+      class="toggle"
+      v-if="!isOpen"
+      src="../Images/open.svg"
+      alt="Menu"
+      @click="toggleMenu"
+    />
+    <img
+      class="toggle"
+      v-else
+      src="../Images/close.svg"
+      alt="Close"
+      @click="toggleMenu"
+    />
+    <ul class="d-flex fl-a-c menu" :class="{ open: isOpen }">
+      <li>
+        <a href="#about"><span>About Us</span> <img :src="Hand" alt="" /></a>
+      </li>
+      <li>
+        <a href="#events"><span>Events</span> <img :src="Events" alt="" /></a>
+      </li>
+      <li>
+        <a href="#activities"
+          ><span>Projects</span> <img :src="Pazel" alt=""
+        /></a>
+      </li>
+      <li>
+        <a href="#FAQ"><span>FAQ</span> <img :src="Qst" alt="" /></a>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -19,24 +38,33 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  height: 95px;
+  /* height: 95px; */
   align-items: center;
   margin-left: 5%;
   margin-right: 5%;
-  /* width: auto; */
+  z-index: 99;
 }
 
 ul {
   list-style-type: none;
 }
 .logo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
   width: 60px;
 }
 
-.right-part {
+ul {
+  width: 100%;
+  margin: 10px;
+  padding-left: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 25px;
 }
-.right-part li {
+li {
   white-space: nowrap;
   position: relative;
   display: flex;
@@ -46,10 +74,10 @@ ul {
   font-weight: 500;
   color: #fff;
 }
-.right-part li a {
+li a {
   display: flex;
 }
-.right-part li img {
+li img {
   /* display: inline; */
   height: 20px;
 }
@@ -58,11 +86,13 @@ span {
   padding-right: 10px;
 }
 
-.active {
-  width: 96.5px;
-}
-.menu-toggle #icon {
+.toggle {
+  width: 60px;
   display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
 }
 
 li::after {
@@ -82,45 +112,25 @@ li:hover::after {
   width: 50%;
 }
 
-.menu-toggle {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 10px;
-  color: #fff;
-}
-
-.menu-toggle div {
-  display: flex;
-  align-items: center;
-}
-
 @media (max-width: 950px) {
   li:hover {
     color: #e82b1f;
   }
-  .menu-toggle {
-    margin: 0;
+  ul {
+    height: 0;
     padding: 0;
+    /* width: 0; */
+    /* padding: 20px; */
+    overflow: hidden;
   }
-  .right-part {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 50%;
-    background-color: #04090f;
-    list-style: none;
-    display: flex;
+  ul.open {
+    height: 200px;
+    /* margin: 0; */
+    /* display: flex; */
     flex-direction: column;
-    /* margin-top: 40px; */
-    transform: translateX(100%);
-    transition: transform 1.2s ease-in-out;
-    z-index: 100;
-    padding: 50px 0;
-  }
-  .right-part.open {
-    transform: translateX(0);
+    /* padding: 40px 20px; */
+    z-index: 99;
+    /* background-color: var(--color-dark-blue); */
   }
   li {
     text-align: left;
@@ -129,18 +139,15 @@ li:hover::after {
     width: 0;
     height: 0;
   }
-  .menu-toggle #icon {
-    display: flex;
-    width: 60px;
-    height: 60px;
-    transition: transform 1.2s ease;
+  .toggle {
+    display: block;
   }
 }
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .right-part {
     left: 43%;
   }
-}
+} */
 </style>
 
 <script>
@@ -159,12 +166,12 @@ export default defineComponent({
       Events: Events,
       Pazel: Pazel,
       Hand: Hand,
-      isResponsive: false,
+      isOpen: false,
     };
   },
   methods: {
-    toggleResponsiveMenu() {
-      this.isResponsive = !this.isResponsive;
+    toggleMenu() {
+      this.isOpen = !this.isOpen;
     },
   },
 });

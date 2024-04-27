@@ -1,6 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import Title from "../components/Title.vue";
+import { useAppStore } from "../store/store";
+
+const appStore = useAppStore();
+const terminalMode = computed(() => appStore.terminalMode);
 </script>
 
 <template>
@@ -45,7 +49,10 @@ import Title from "../components/Title.vue";
       number="5"
       color="#f8ae28"
     ></Title>
-    <p class="description">> Lorem ipsum dolor sit amet, consectetur.</p>
+    <p class="description" :style="terminalMode ? { color: 'white' } : {}">
+      > The club's objectives are achieved through the organization of various
+      activities, which can be summarized as follows:
+    </p>
 
     <div class="content w-100 d-flex fl-col fl-j-sb">
       <div class="branches-overlay"></div>
@@ -106,43 +113,43 @@ import Title from "../components/Title.vue";
             <img src="../assets/images/omc-blog.png" alt="" srcset="" />
           </div>
           <div class="body">
-            <h3>OMC blog</h3>
-            <p>Check our blog and learn more about open source!</p>
+            <h3>OMC activities!</h3>
+            <!-- <p>Check our blog and learn more about open source!</p> -->
           </div>
         </div>
         <div>
-          <h2 class="subtitle">> Title of section 1</h2>
+          <h2 class="subtitle">> Workshops and tutorials!</h2>
           <p class="desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            The club's spirit of sharing is brought to life through training
+            sessions and workshops run by experienced students and graduates
+            eager to share their knowledge in any field.
           </p>
-          <a href="#" class="link d-flex fl-a-c fl-j-c"
+          <!-- <a href="#" class="link d-flex fl-a-c fl-j-c"
             >Visit Now <img src="../assets/svg/arrow-right.svg" alt="" />
-          </a>
+          </a> -->
         </div>
       </div>
-      <div class="d-flex fl-a-c activity">
+      <div class="d-flex fl-a-c activity activity-2">
         <div>
-          <h2 class="subtitle">> Title of section 1</h2>
+          <h2 class="subtitle">> Open Wiki</h2>
           <p class="desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            The community is dedicated to the exchange and collaboration of
+            knowledge. Open Wiki, a platform developed by the club, facilitates
+            knowledge sharing and encourages open source contributions.
           </p>
-          <a href="#" class="link d-flex fl-a-c fl-j-c"
+          <a
+            href="https://wiki.openmindsclub.net/"
+            class="link d-flex fl-a-c fl-j-c"
             >Visit Now <img src="../assets/svg/arrow-right.svg" alt="" />
           </a>
         </div>
         <div class="card">
           <div class="image">
-            <img src="../assets/images/omc-blog.png" alt="" srcset="" />
+            <img src="../assets/images/open-wiki.png" alt="" srcset="" />
           </div>
           <div class="body">
-            <h3>OMC blog</h3>
-            <p>Check our blog and learn more about open source!</p>
+            <h3>Open Wiki</h3>
+            <p>Welcome to the Free Open Source Wiki !</p>
           </div>
         </div>
       </div>
@@ -200,7 +207,7 @@ import Title from "../components/Title.vue";
   width: 498px;
   /* min-width: 498px; */
   /* max-width: 100%; */
-  height: 419px;
+  /* height: 419px; */
   border-radius: 14px;
   padding: 5px;
   font-size: 15px;
@@ -211,7 +218,7 @@ import Title from "../components/Title.vue";
   height: 270px;
 }
 .card .body {
-  padding: 5px;
+  padding: 10px;
 }
 .card h3 {
   font-size: 25px;
@@ -273,6 +280,9 @@ import Title from "../components/Title.vue";
   #banches-svg,
   .branches-overlay {
     display: none;
+  }
+  .activity-2 {
+    flex-direction: column-reverse;
   }
 }
 </style>

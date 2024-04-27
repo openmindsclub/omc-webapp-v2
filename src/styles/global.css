@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap");
 
 :root {
   --color-red: #e82b1f;
@@ -8,7 +8,7 @@
   --color-orange: #f8ae28;
   --color-dark-blue: #04090f;
   --color-grey: #8e98a8;
-  --color-black: #1E1F21;
+  --color-black: #1e1f21;
 }
 
 * {
@@ -18,8 +18,7 @@
 }
 
 html,
-body,
-#app {
+body {
   width: 100%;
   height: 100%;
   scroll-behavior: smooth;
@@ -27,8 +26,14 @@ body,
 
 body {
   font-family: Ubuntu, sans-serif;
-  background-color: var(--color-dark-blue);
   font-weight: 400;
+  background-image: url(../assets/svg/bg.svg);
+  /* I want to revesse the colors of this background */
+  background-color: var(--color-dark-blue);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-dark-blue);
 }
 
 .d-flex {
@@ -56,14 +61,20 @@ img {
 }
 
 .title {
-  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title h1 {
   font-size: 48px;
   font-weight: 700;
 }
 
 .section .description {
+  width: 100%;
+  max-width: 700px;
   color: var(--color-grey);
-  text-align: center;
   font-family: Ubuntu Mono;
   font-size: 24px;
   font-weight: 400;
@@ -78,11 +89,45 @@ a {
   color: inherit;
 }
 
+.center-text {
+  text-align: center;
+}
+
+.white {
+  color: white;
+}
+
+/* smooth transition for all elements */
+* {
+  transition: all 0.3s ease;
+}
+
+.blinker {
+  display: inline-block;
+  width: 10px;
+  border-bottom: 2px solid white;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
 @media (max-width: 700px) {
   .title {
     font-size: 24px;
   }
   .section .description {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .top-bar {
+    height: 26px;
+  }
+  .top-bar button {
+    width: 7px;
+    height: 7px;
   }
 }

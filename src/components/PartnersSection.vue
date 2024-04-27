@@ -1,5 +1,10 @@
 <script setup>
+import { computed } from "vue";
+import { useAppStore } from "../store/store";
 import Title from "./Title.vue";
+
+const appStore = useAppStore();
+const terminalMode = computed(() => appStore.terminalMode);
 </script>
 
 <template>
@@ -54,11 +59,7 @@ import Title from "./Title.vue";
       number="4"
       color="#3173bb"
     ></Title>
-    <p class="description">
-      > welcome in omc website if u want to that aims to hilk <br />
-      promote the spirit of collaboration between students, sharing knowledge,
-      <br />the Free Open Source Philosophy inside and outside again welcome
-    </p>
+    <p class="description" :style="terminalMode ? { color: 'white' } : {}"></p>
 
     <div class="cards d-flex fl-j-c fl-a-c">
       <div class="card d-flex fl-a-c fl-j-c mjs">
@@ -87,7 +88,7 @@ import Title from "./Title.vue";
   padding: 40px;
 }
 .card.mjs {
-    padding: 20px;
+  padding: 20px;
 }
 
 @media (max-width: 700px) {
