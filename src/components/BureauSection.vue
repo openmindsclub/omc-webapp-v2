@@ -3,7 +3,9 @@ import { computed, ref } from "vue";
 import Title from "../components/Title.vue";
 import SuitIcon from "../assets/svg/suit.svg";
 
-import image1 from "../assets/images/nada.png";
+import Nada from "../assets/images/nada.png";
+import Aymen from "../assets/images/aymen.png";
+import Riyadh from "../assets/images/riyadh.png";
 import { useAppStore } from "../store/store";
 import TerminalNavbar from "./TerminalNavbar.vue";
 
@@ -17,28 +19,28 @@ function animateGradient(event) {
   gradientStops.value = (x * 100) / width;
 }
 
-const members = [
-  {
-    name: "Nad Tis",
-    description: "Hello 👋 I'm the president.",
-    image: image1,
-  },
-  {
-    name: "Nad Tis",
-    description: "Hello 👋 I'm the president.",
-    image: image1,
-  },
-  {
-    name: "Nad Tis",
-    description: "Hello 👋 I'm the president.",
-    image: image1,
-  },
-  {
-    name: "Nad Tis",
-    description: "Hello 👋 I'm the president.",
-    image: image1,
-  },
-];
+// const members = [
+//   {
+//     name: "Nad Tis",
+//     description: "Hello 👋 I'm the president.",
+//     image: Nada,
+//   },
+//   {
+//     name: "Nad Tis",
+//     description: "Hello 👋 I'm the president.",
+//     image: Nada,
+//   },
+//   {
+//     name: "Nad Tis",
+//     description: "Hello 👋 I'm the president.",
+//     image: image1,
+//   },
+//   {
+//     name: "Nad Tis",
+//     description: "Hello 👋 I'm the president.",
+//     image: image1,
+//   },
+// ];
 
 const appStore = useAppStore();
 const terminalMode = computed(() => appStore.terminalMode);
@@ -183,7 +185,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           y="0"
           width="81"
           height="81"
-          :xlink:href="members[0].image"
+          :xlink:href="Nada"
           clip-path="url(#avatar-clip-1)"
           class="bureau-pic"
         />
@@ -193,7 +195,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           y="50"
           width="81"
           height="81"
-          :xlink:href="Avatar"
+          :xlink:href="Riyadh"
           clip-path="url(#avatar-clip-3)"
           class="bureau-pic"
         />
@@ -203,7 +205,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           y="288"
           width="81"
           height="81"
-          :xlink:href="Avatar"
+          :xlink:href="Riyad"
           clip-path="url(#avatar-clip-4)"
         /> -->
 
@@ -212,7 +214,7 @@ const terminalMode = computed(() => appStore.terminalMode);
           y="350"
           width="81"
           height="81"
-          :xlink:href="Avatar"
+          :xlink:href="Aymen"
           clip-path="url(#avatar-clip-2)"
           class="bureau-pic"
         />
@@ -333,11 +335,11 @@ h1 {
 }
 
 .member1 {
-  top: -40px;
+  top: -50px;
   left: 7vw;
 }
 .member2 {
-  top: -20px;
+  top: -40px;
   right: 17vw;
 }
 .member3 {
