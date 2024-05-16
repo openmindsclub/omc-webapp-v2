@@ -171,6 +171,7 @@ section.events {
   align-items: center;
   width: 100%;
   padding: 0 5%;
+  text-align: left;
 }
 
 .slider-container {
@@ -241,6 +242,9 @@ section.events {
 .slider {
   animation: sliderScroll 24s linear infinite;
 }
+.item .content {
+  align-items: flex-start;
+}
 
 .item p {
   font-size: 16px;
@@ -258,11 +262,18 @@ section.events {
 
 @media (max-width: 900px) {
   .slider {
-    width: 200vw;
-    height: 150px;
+    min-width: 100%;
+    min-height: 150px;
     height: auto;
     font-size: 15px;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
+  }
+  .slider .item {
+    width: 70vw;
+    min-width: 70vw;
+    max-width: 70vw;
+    height: auto
+    /* min-height: 150px; */
   }
 
   @keyframes sliderScroll {
@@ -270,7 +281,7 @@ section.events {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100vw);
+      transform: translateX(-280vw);
     }
   }
 }
