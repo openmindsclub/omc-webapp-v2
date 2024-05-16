@@ -46,7 +46,7 @@ const terminalMode = computed(() => appStore.terminalMode);
     <Title
       class="title"
       :text="`> ${$t('title-activities')}`"
-      number="5"
+      number="4"
       color="#f8ae28"
     ></Title>
     <p class="description" :style="terminalMode ? { color: 'white' } : {}">

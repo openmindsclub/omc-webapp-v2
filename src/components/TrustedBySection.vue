@@ -41,7 +41,7 @@ import Title from "./Title.vue";
     <Title
       class="title"
       :text="`> ${$t('title-trusted-by')}`"
-      number="7"
+      number="6"
       color="#49ac36"
     ></Title>
     <p class="description">

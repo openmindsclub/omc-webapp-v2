@@ -51,7 +51,7 @@ const terminalMode = computed(() => appStore.terminalMode);
     <Title
       class="title"
       :text="terminalMode ? '>Our Board_' : ''"
-      number="1"
+      number="7"
       color="#3173BB"
     ></Title>
     <p class="description"></p>

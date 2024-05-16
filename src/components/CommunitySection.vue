@@ -41,7 +41,7 @@ import Title from "./Title.vue";
     <Title
       class="title"
       :text="`> ${$t('title-community')}`"
-      number="6"
+      number="5"
       color="#e82b1f"
     ></Title>
 

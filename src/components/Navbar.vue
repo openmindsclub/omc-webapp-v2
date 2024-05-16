@@ -141,7 +141,7 @@ select, option {
     overflow: hidden;
   }
   ul.open {
-    height: 200px;
+    height: 220px;
     /* margin: 0; */
     /* display: flex; */
     flex-direction: column;

@@ -120,7 +120,7 @@ onMounted(() => {
       <Title
         class="title"
         text=">Our Events_🎬"
-        number="3"
+        number="2"
         color="#49ac36"
       ></Title>
       <p class="description" :style="terminalMode ? { color: 'white' } : {}">

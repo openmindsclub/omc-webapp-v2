@@ -15,6 +15,7 @@ import { useAppStore } from "./store/store";
 import { setTerminalMode } from "./helpers/store";
 import WindowBar from "./components/WindowBar.vue";
 import TerminalView from "./components/TerminalView.vue";
+import FooterSection from "./components/FooterSection.vue";
 
 // observer to run the animation everytime the element is in the view
 const observer = new IntersectionObserver((entries) => {
@@ -121,7 +122,8 @@ function handleKeyPress(event) {
     <CommunitySection v-if="!terminalMode" />
     <TrustedBySection v-if="!terminalMode" />
     <BureauSection v-if="!terminalMode || currentSection === 4" />
-    <FAQSection id="FAQ" v-if="!terminalMode" />
+    <!-- <FAQSection id="FAQ" v-if="!terminalMode" /> -->
+    <FooterSection />
     <!-- <img v-if="terminalMode" class="terminal-footer" src="./assets/svg/footer.svg" alt=""> -->
     <div class="terminal-footer w-100" v-if="terminalMode">
       <svg
@@ -346,7 +348,6 @@ function handleKeyPress(event) {
     </div>
   </div>
 
-  <footer v-if="!terminalMode">Made with <span>&#10084;</span> by OMC</footer>
 </template>
 
 <style scoped>
@@ -405,7 +406,7 @@ footer span {
 }
 
 .section {
-  animation: fade-in .3s ease-in;
+  animation: fade-in 0.3s ease-in;
 }
 
 @keyframes fade-in {
