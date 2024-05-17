@@ -3,7 +3,7 @@ import Title from "./Title.vue";
 </script>
 
 <template>
-  <section class="footer">
+  <section class="footer flex flex-col justify-center items-center">
     <Title class="title" text="" number="8" color="#f8ae28"></Title>
     <h1 class="title">Where Open Source Minds Come Together.</h1>
     <footer class="slogan">Made with <span>&#10084;</span> by OMC</footer>
