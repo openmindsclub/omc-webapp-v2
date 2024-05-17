@@ -38,9 +38,9 @@
           ><span>{{ $t('button-projects') }}</span> <img :src="Pazel" alt=""
         /></a>
       </li>
-      <li>
+      <!-- <li>
         <a href="#FAQ"><span>FAQ</span> <img :src="Qst" alt="" /></a>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </template>
