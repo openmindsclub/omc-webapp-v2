@@ -150,7 +150,7 @@ option {
     overflow: hidden;
   }
   ul.open {
-    height: 220px;
+    height: 250px;
     /* margin: 0; */
     /* display: flex; */
     flex-direction: column;

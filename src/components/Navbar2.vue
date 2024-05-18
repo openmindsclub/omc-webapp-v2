@@ -99,37 +99,6 @@ option {
   background-color: var(--color-dark-blue);
 }
 
-@media (max-width: 950px) {
-  li:hover {
-    color: #e82b1f;
-  }
-  ul {
-    height: 0;
-    padding: 0;
-    /* width: 0; */
-    /* padding: 20px; */
-    overflow: hidden;
-  }
-  ul.open {
-    height: 220px;
-    /* margin: 0; */
-    /* display: flex; */
-    flex-direction: column;
-    /* padding: 40px 20px; */
-    z-index: 99;
-    /* background-color: var(--color-dark-blue); */
-  }
-  li {
-    text-align: left;
-  }
-  li::after {
-    width: 0;
-    height: 0;
-  }
-  .toggle {
-    display: block;
-  }
-}
 /* @media (max-width: 400px) {
   .right-part {
     left: 43%;
