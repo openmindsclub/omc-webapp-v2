@@ -47,7 +47,7 @@ async function submit() {
   error.value = "";
   // send the form data to the server
   try {
-    const response = await fetch("https://api.openmindsclub.com/register", {
+    const response = await fetch("https://api.openmindsclub.net/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,7 @@ async function submit() {
       presentationDescription: "",
     };
   } catch (error) {
-    console.error(error.response);
+    console.error("error: ", error);
     // backend is setting the error message in the response errors array
     alert(error.response.data.errors[0].msg);
     error.value = error.response.data.errors[0].msg;
