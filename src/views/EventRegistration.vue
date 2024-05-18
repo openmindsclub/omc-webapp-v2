@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import Navbar from "../components/Navbar2.vue";
 import Title from "../components/Title.vue";
 import axios from "axios";
+import DownArrow from "../assets/svg/arrow-down-blue.svg";
 
 // form data and validation
 const formData = ref({
@@ -103,9 +104,25 @@ async function submit(e) {
         class="min-w-[200px] w-[60%] md:w-[30%]"
       />
       <p class="text-xl text-center md:max-w-[80%]">
-        <span class="font-bold text-2xl"><span class="text-[#05937b]">OM</span>tech</span> is an annual event by OpenMindsClub, exploring tech's forefront. <br>
-        this year's "OMtech: AI Spotlight" focuses on the latest trends and advancement of AI and its applications in various fields. <br><br>
+        <span class="font-bold text-2xl"
+          ><span class="text-[#05937b]">OM</span>tech</span
+        >
+        is an annual event by OpenMindsClub, exploring tech's forefront. <br />
+        this year's "OMtech: AI Spotlight" focuses on the latest trends and
+        advancement of AI and its applications in various fields. <br /><br />
       </p>
+    </div>
+
+    <div>
+      <!-- register now button, that scrolls to the registration form -->
+      <a
+        href="#register-form"
+        class="register-now flex justify-center items-center font-bold text-[#3173bb] gap-1 text-2xl pb-2 border-b-[2px] border-white"
+      >
+        Register Now
+        <!-- down arrow -->
+        <img :src="DownArrow" alt="down arrow" class="w-6" />
+      </a>
     </div>
 
     <div
@@ -126,7 +143,10 @@ async function submit(e) {
     </div>
 
     <!-- show "Registration are now open!" with typewriter effect -->
-    <h1 class="text-[#05937b] mt-20 text-center text-xl md:text-4xl font-bold">
+    <h1
+      class="text-[#05937b] mt-20 text-center text-xl md:text-4xl font-bold"
+      id="register-form"
+    >
       Registration are now open! <span class="blinker"></span>
     </h1>
     <form
@@ -316,7 +336,7 @@ async function submit(e) {
 
       <div class="flex flex-col justify-center items-center gap-5">
         <button
-          class="bg-[#f8ae28] hover:bg-[#f8ae28] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class="bg-[#3173bb] hover:bg-[white] text-white hover:text-[#3173bb] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
           :disabled="isLoading"
         >
