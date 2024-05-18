@@ -77,7 +77,7 @@ async function submit() {
     <div
       class="flex flex-col-reverse items-center justify-center mt-10 md:flex-row-reverse md:justify-center w-[100%] md:w-[80%] bg-[#04090f] rounded-lg shadow-lg md:shadow-xl md:items-start font-[mono]"
     >
-      <p class="max-w-[700px] indent-4">
+      <p class="max-w-[700px] indent-8 text-xl">
         <a href="https://www.edenai.co/" class="text-[#3173bb]"
           ><b>Eden AI</b></a
         >, democratizes access to artificial intelligence. We believe in
@@ -86,7 +86,7 @@ async function submit() {
       </p>
       <img src="../assets/images/edenai.png" alt="Eden AI" class="w-[200px]" />
     </div>
-    <p class="w-[100%] md:w-[80%] max-w-[900px] pt-5 md:pt-0 indent-4">
+    <p class="w-[100%] md:w-[80%] max-w-[900px] pt-5 indent-8 text-xl">
       <b>Samy</b> is the co-founder of
       <a href="https://www.edenai.co/" class="text-[#3173bb]"><b>Eden AI</b></a
       >. He holds a master's degree in AI from USTHB and formerly served as the
