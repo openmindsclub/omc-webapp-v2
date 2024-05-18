@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import Navbar from "../components/Navbar2.vue";
 import Title from "../components/Title.vue";
+import axios from "axios";
 
 // form data and validation
 const formData = ref({
@@ -16,7 +17,7 @@ const formData = ref({
   presentationTitle: "",
   presentationDescription: "",
 });
-const error = ref("");
+const message = ref("");
 const isFormValid = computed(() => {
   return (
     formData.value.firstName &&
@@ -44,19 +45,15 @@ async function submit() {
   }
 
   isLoading.value = true;
-  error.value = "";
+  message.value = "";
   // send the form data to the server
   try {
-    const response = await fetch("https://api.openmindsclub.net/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData.value),
-    });
-    const data = await response.json();
-    console.log(data);
-    alert("Registration successful!");
+    const response = await axios.post(
+      "https://api.openmindsclub.net/register",
+      formData.value
+    );
+    console.log(response.data);
+    alert("Successfully registered!");
     // reset the form
     formData.value = {
       firstName: "",
@@ -71,10 +68,10 @@ async function submit() {
       presentationDescription: "",
     };
   } catch (error) {
-    console.error("error: ", error);
+    console.error("error: ", error.response.data.errors[0].msg);
     // backend is setting the error message in the response errors array
     alert(error.response.data.errors[0].msg);
-    error.value = error.response.data.errors[0].msg;
+    message.value = error.response.data.errors[0].msg;
   } finally {
     isLoading.value = false;
   }
@@ -304,7 +301,7 @@ async function submit() {
           Register
         </button>
 
-        <p class="text-red-500" v-if="error">{{ error }}</p>
+        <p class="text-red-500 h-5">{{ message }}</p>
       </div>
     </form>
   </main>
