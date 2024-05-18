@@ -147,7 +147,7 @@ async function submit(e) {
       class="text-[#05937b] mt-20 text-center text-xl md:text-4xl font-bold"
       id="register-form"
     >
-      Registration are now open! <span class="blinker"></span>
+      Registrations are now open! <span class="blinker"></span>
     </h1>
     <form
       class="w-full bg-[#04090f] md:p-[20px] mt-10 max-w-[900px] rounded-lg shadow-lg slide-down p-5"
