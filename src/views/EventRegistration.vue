@@ -20,12 +20,18 @@ const error = ref("");
 const isFormValid = computed(() => {
   return (
     formData.value.firstName &&
+    formData.value.firstName.length >= 3 &&
     formData.value.lastName &&
+    formData.value.lastName.length >= 3 &&
     formData.value.email &&
     formData.value.phone &&
+    formData.value.phone.length >= 9 &&
     formData.value.university &&
     formData.value.major &&
-    formData.value.level
+    formData.value.level &&
+    (!formData.value.isPresenting ||
+      (formData.value.presentationTitle &&
+        formData.value.presentationDescription))
   );
 });
 
@@ -38,24 +44,40 @@ async function submit() {
   }
 
   isLoading.value = true;
+  error.value = "";
   // send the form data to the server
-  // try {
-  //   const response = await fetch("https://api.openmindsclub.com/register", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData.value),
-  //   });
-  //   const data = await response.json();
-  //   console.log(data);
-  //   alert("Registration successful!");
-  // } catch (error) {
-  //   console.error(error);
-  //   alert("An error occurred. Please try again later.");
-  // } finally {
-  //   isLoading.value = false;
-  // }
+  try {
+    const response = await fetch("http://api.openmindsclub.com/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData.value),
+    });
+    const data = await response.json();
+    console.log(data);
+    alert("Registration successful!");
+    // reset the form
+    formData.value = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      university: "",
+      major: "",
+      level: "",
+      isPresenting: false,
+      presentationTitle: "",
+      presentationDescription: "",
+    };
+  } catch (error) {
+    console.error(error);
+    // backend is setting the error message in the response errors array
+    alert(error.response.data.errors[0].msg);
+    error.value = error.response.data.errors[0].msg;
+  } finally {
+    isLoading.value = false;
+  }
 
   // for now just sleep for 2 seconds
   await new Promise((resolve) => setTimeout(resolve, 2000));
