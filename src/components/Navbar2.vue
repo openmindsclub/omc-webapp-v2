@@ -1,10 +1,16 @@
+<script setup>
+import LeftArrow from "../assets/svg/arrow-left.svg";
+</script>
 <template>
   <nav class="navbar">
     <img class="logo" :src="omclogo" alt="" />
     <ul class="d-flex fl-a-c menu" :class="{ open: isOpen }">
       <li></li>
       <li>
-        <a href="/"><span>Home</span> <img :src="Hand" alt="" /></a>
+        <a href="/" class="d-flex fl-a-c gap-1">
+          <img :src="LeftArrow" alt="" />
+          <span>Home</span>
+        </a>
       </li>
       <!-- <li>
         <a href="#FAQ"><span>FAQ</span> <img :src="Qst" alt="" /></a>
@@ -36,7 +42,7 @@ ul {
 
 ul {
   width: 100%;
-  margin: 20px;
+  margin: 20px 0;
   padding-left: 50%;
   justify-content: right;
   align-items: center;
@@ -59,10 +65,6 @@ li a {
 li img {
   /* display: inline; */
   height: 20px;
-}
-
-span {
-  padding-right: 10px;
 }
 
 .toggle {

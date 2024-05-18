@@ -95,32 +95,42 @@ async function submit(e) {
       among students and to promote the Open Source philosophy.
     </p> -->
     <div
-      class="flex flex-col-reverse items-center justify-center mt-10 md:flex-row-reverse md:justify-center w-[100%] md:w-[80%] bg-[#04090f] rounded-lg shadow-lg md:shadow-xl md:items-start font-[mono]"
+      class="flex flex-col items-center justify-center mt-10 w-[100%] md:w-[80%] rounded-lg shadow-lg md:shadow-xl font-[mono]"
     >
-      <p class="max-w-[700px] indent-8 text-xl">
+      <img
+        src="../assets/images/omtech-logo.png"
+        alt="Eden AI"
+        class="min-w-[200px] w-[60%] md:w-[30%]"
+      />
+      <p class="text-xl text-center md:max-w-[80%]">
+        <span class="font-bold text-2xl"><span class="text-[#05937b]">OM</span>tech</span> is an annual event by OpenMindsClub, exploring tech's forefront. <br>
+        this year's "OMtech: AI Spotlight" focuses on the latest trends and advancement of AI and its applications in various fields. <br><br>
+      </p>
+    </div>
+
+    <div
+      class="flex flex-col items-center justify-center mt-10 w-[100%] md:w-[80%] rounded-lg shadow-lg md:shadow-xl font-[mono]"
+    >
+      <img
+        src="../assets/images/edenai.png"
+        alt="Eden AI"
+        class="min-w-[200px] w-[60%] md:w-[30%]"
+      />
+      <p class="text-xl text-center md:max-w-[80%]">
         <a href="https://www.edenai.co/" class="text-[#3173bb]"
           ><b>Eden AI</b></a
         >, democratizes access to artificial intelligence. We believe in
         empowering developers and businesses to easily harness the power of AI,
         transforming complex AI use cases into seamless, integrated workflows.
       </p>
-      <img src="../assets/images/edenai.png" alt="Eden AI" class="w-[200px]" />
     </div>
-    <p class="w-[100%] md:w-[80%] max-w-[900px] pt-5 indent-8 text-xl">
-      <b>Samy</b> is the co-founder of
-      <a href="https://www.edenai.co/" class="text-[#3173bb]"><b>Eden AI</b></a
-      >. He holds a master's degree in AI from USTHB and formerly served as the
-      president of OMC. Before founding Eden AI, he co-founded DataGenius, a
-      Data Science lab specializing in developing custom machine learning models
-      for clients.
-    </p>
 
     <!-- show "Registration are now open!" with typewriter effect -->
-    <h1 class="text-[#f8ae28] mt-20 text-center text-xl md:text-4xl">
+    <h1 class="text-[#05937b] mt-20 text-center text-xl md:text-4xl font-bold">
       Registration are now open! <span class="blinker"></span>
     </h1>
     <form
-      class="w-full bg-[#04090f] md:p-[20px] mt-10 max-w-[900px] rounded-lg shadow-lg slide-down"
+      class="w-full bg-[#04090f] md:p-[20px] mt-10 max-w-[900px] rounded-lg shadow-lg slide-down p-5"
       @submit="submit"
     >
       <div class="flex flex-wrap -mx-3 mb-6 pt-5">
@@ -329,7 +339,7 @@ async function submit(e) {
 
 <style scoped>
 .blinker {
-  border-color: #f8ae28;
+  border-color: #05937b;
   width: 0.5em;
 }
 
@@ -338,7 +348,7 @@ async function submit(e) {
 }
 
 form {
-  box-shadow: 0 3px 6px var(--color-blue),  0 3px 6px var(--color-blue);
+  box-shadow: 0 3px 6px var(--color-blue), 0 3px 6px var(--color-blue);
 }
 
 @keyframes slideDown {
