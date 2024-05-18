@@ -120,10 +120,10 @@ async function submit(e) {
       Registration are now open! <span class="blinker"></span>
     </h1>
     <form
-      class="w-full bg-[#04090f] md:p-[20px] mt-10 max-w-[900px] rounded-lg shadow-lg"
+      class="w-full bg-[#04090f] md:p-[20px] mt-10 max-w-[900px] rounded-lg shadow-lg slide-down"
       @submit="submit"
     >
-      <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="flex flex-wrap -mx-3 mb-6 pt-5">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
@@ -267,7 +267,10 @@ async function submit(e) {
         </div>
       </div>
       <!-- show the rest of the inputs if the user is presenting -->
-      <div v-if="formData.isPresenting" class="flex flex-wrap -mx-3 mb-6">
+      <div
+        v-if="formData.isPresenting"
+        class="slide-down flex flex-wrap -mx-3 mb-6"
+      >
         <div class="w-full px-3">
           <label
             class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
@@ -328,5 +331,22 @@ async function submit(e) {
 .blinker {
   border-color: #f8ae28;
   width: 0.5em;
+}
+
+.slide-down {
+  animation: slideDown 0.5s ease;
+}
+
+form {
+  box-shadow: 0 3px 6px var(--color-blue),  0 3px 6px var(--color-blue);
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>
