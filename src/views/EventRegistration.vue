@@ -38,9 +38,10 @@ const isFormValid = computed(() => {
 
 const isLoading = ref(false);
 
-async function submit() {
+async function submit(e) {
+  e.preventDefault();
   if (!isFormValid.value) {
-    alert("Please fill out all the required fields.");
+    alert("Please fill out all the required fields correctly!");
     return;
   }
 
@@ -120,6 +121,7 @@ async function submit() {
     </h1>
     <form
       class="w-full bg-[#04090f] md:p-[20px] mt-10 max-w-[900px] rounded-lg shadow-lg"
+      @submit="submit"
     >
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -135,6 +137,7 @@ async function submit() {
             type="text"
             placeholder="First Name"
             v-model="formData.firstName"
+            required
           />
           <!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
         </div>
@@ -151,6 +154,7 @@ async function submit() {
             type="text"
             placeholder="Last Name"
             v-model="formData.lastName"
+            required
           />
         </div>
       </div>
@@ -168,6 +172,7 @@ async function submit() {
             type="email"
             placeholder="example@example.com"
             v-model="formData.email"
+            required
           />
         </div>
       </div>
@@ -185,6 +190,8 @@ async function submit() {
             type="tel"
             placeholder="e.g. 0555 55 55 55"
             v-model="formData.phone"
+            min="9"
+            required
           />
         </div>
       </div>
@@ -202,6 +209,7 @@ async function submit() {
             type="text"
             placeholder="e.g. USTHB"
             v-model="formData.university"
+            required
           />
         </div>
       </div>
@@ -219,6 +227,7 @@ async function submit() {
             type="text"
             placeholder="e.g. Computer Science"
             v-model="formData.major"
+            required
           />
         </div>
       </div>
@@ -236,6 +245,7 @@ async function submit() {
             type="text"
             placeholder="e.g. Master 2"
             v-model="formData.level"
+            required
           />
         </div>
       </div>
@@ -294,9 +304,8 @@ async function submit() {
       <div class="flex flex-col justify-center items-center gap-5">
         <button
           class="bg-[#f8ae28] hover:bg-[#f8ae28] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="button"
+          type="submit"
           :disabled="isLoading"
-          @click="submit"
         >
           Register
         </button>
