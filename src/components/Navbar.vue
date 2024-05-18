@@ -28,14 +28,21 @@
         </select>
       </li>
       <li>
-        <a href="#about"><span>{{ $t('button-about') }}</span> <img :src="Hand" alt="" /></a>
+        <a href="/omtech">OMTech</a>
       </li>
       <li>
-        <a href="#events"><span>{{ $t('button-events') }}</span> <img :src="Events" alt="" /></a>
+        <a href="#about"
+          ><span>{{ $t("button-about") }}</span> <img :src="Hand" alt=""
+        /></a>
+      </li>
+      <li>
+        <a href="#events"
+          ><span>{{ $t("button-events") }}</span> <img :src="Events" alt=""
+        /></a>
       </li>
       <li>
         <a href="#activities"
-          ><span>{{ $t('button-projects') }}</span> <img :src="Pazel" alt=""
+          ><span>{{ $t("button-projects") }}</span> <img :src="Pazel" alt=""
         /></a>
       </li>
       <!-- <li>
@@ -74,7 +81,8 @@ ul {
   align-items: center;
   gap: 25px;
 }
-li, select {
+li,
+select {
   white-space: nowrap;
   position: relative;
   display: flex;
@@ -122,7 +130,8 @@ li:hover::after {
   width: 50%;
 }
 
-select, option {
+select,
+option {
   padding: 0 5px;
   border-radius: 4px;
   /* color: var(--color-blue); */
