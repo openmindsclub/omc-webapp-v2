@@ -25,8 +25,7 @@ import LeftArrow from "../assets/svg/arrow-left.svg";
   justify-content: space-between;
   /* height: 95px; */
   align-items: center;
-  margin-left: 5%;
-  margin-right: 5%;
+  padding: 0 5%;
   z-index: 99;
 }
 
@@ -34,10 +33,7 @@ ul {
   list-style-type: none;
 }
 .logo {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 60px;
+  width: 40px;
 }
 
 ul {
