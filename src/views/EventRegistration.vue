@@ -125,9 +125,14 @@ async function submit(e) {
       </a>
     </div>
 
+    <!-- divider -->
+    <hr class="border-1 border-[#fff] w-[80%] md:w-[50%] mt-40">
+
     <div
       class="flex flex-col items-center justify-center mt-10 w-[100%] md:w-[80%] rounded-lg shadow-lg md:shadow-xl font-[mono]"
     >
+    <h1 class="text-2xl"
+    >Sponsored By</h1>
       <img
         src="../assets/images/edenai.png"
         alt="Eden AI"
