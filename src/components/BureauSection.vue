@@ -9,7 +9,7 @@ import Riyadh from "../assets/images/riyadh.png";
 import { useAppStore } from "../store/store";
 import TerminalNavbar from "./TerminalNavbar.vue";
 
-import Avatar from "../assets/images/avatar.png"
+import Avatar from "../assets/images/avatar.png";
 
 const svgRef = ref();
 const gradientStops = ref(0);
@@ -335,15 +335,15 @@ h1 {
 }
 
 .member1 {
-  top: -50px;
+  top: -200px;
   left: 7vw;
 }
 .member2 {
-  top: -40px;
+  top: -100px;
   right: 17vw;
 }
 .member3 {
-  top: 92%;
+  top: 110%;
   left: 40vw;
 }
 
@@ -368,6 +368,19 @@ text {
   image.bureau-pic {
     width: 200px;
     height: 200px;
+  }
+
+  .member1 {
+    top: -100px;
+    left: 0;
+  }
+  .member2 {
+    top: -60px;
+    right: 0;
+  }
+  .member3 {
+    top: 102%;
+    left: 40vw;
   }
 }
 </style>
