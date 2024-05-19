@@ -5,7 +5,7 @@ import Title from "./Title.vue";
 <template>
   <section class="footer flex flex-col justify-center items-center">
     <Title class="title" text="" number="8" color="#f8ae28"></Title>
-    <h1 class="title">Where Open Source Minds Come Together.</h1>
+    <h1 class="text-xl md:text-2xl">"Ce qui ne se partage pas se perd"</h1>
     <footer class="slogan">Made with <span>&#10084;</span> by OMC</footer>
   </section>
 </template>

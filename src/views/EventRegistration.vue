@@ -355,7 +355,7 @@ async function submit(e) {
   <footer
     class="text-white flex flex-col justify-center aling-center text-center mt-10"
   >
-    <h1 class="title">Where Open Source Minds Come Together.</h1>
+    <h1 class="text-xl md:text-2xl">"Ce qui ne se partage pas se perd"</h1>
     <p class="text-[#f8ae28] mt-10">
       Made with <span class="text-[red] color-[red]">&#10084;</span> by OMC
     </p>
