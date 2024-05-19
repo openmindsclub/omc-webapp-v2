@@ -3,49 +3,53 @@ import { computed, onMounted, ref } from "vue";
 import Title from "./Title.vue";
 import { useAppStore } from "../store/store";
 import TerminalNavbar from "./TerminalNavbar.vue";
+import InstallParty from "../assets/images/events/ip.JPG";
+import ArabGames from "../assets/images/events/arab-games.jpg";
+import Congres from "../assets/images/events/congres.JPG";
+import Stand from "../assets/images/events/stand.JPG";
 
 const events = [
   {
-    title: "ARAB GAMES 1",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "Install Party",
+    description: "",
+    image: InstallParty,
   },
   {
-    title: "ARAB GAMES 2",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "Arab Games 2023",
+    description: "",
+    image: ArabGames,
   },
   {
-    title: "ARAB GAMES 3",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "CLEF Congres",
+    description: "",
+    image: Congres,
   },
   {
-    title: "ARAB GAMES 4",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "OMC Stands",
+    description: "",
+    image: Stand,
   },
 
   // duplicate the list, just to ensure an infinite smoothe scroll
   {
-    title: "ARAB GAMES 1",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "Install Party",
+    description: "",
+    image: InstallParty,
   },
   {
-    title: "ARAB GAMES 2",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "Arab Games 2023",
+    description: "",
+    image: ArabGames,
   },
   {
-    title: "ARAB GAMES 3",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "CLEF Congres",
+    description: "",
+    image: Congres,
   },
   {
-    title: "ARAB GAMES 4",
-    description: "Event event event hehe",
-    image: "event1.png",
+    title: "OMC Stands",
+    description: "",
+    image: Stand,
   },
 ];
 
@@ -142,8 +146,8 @@ onMounted(() => {
               transform: index % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
             }"
           >
-            <img :src="`/images/${item.image}`" alt="" />
-            <div class="content">
+            <img :src="item.image" alt="" />
+            <div class="bottom bg-black">
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
             </div>
@@ -218,22 +222,26 @@ section.events {
   height: calc(100% - 20px);
 }
 
-.slider .item .content {
+.slider .item .bottom {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   padding: 20px;
+  padding-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   text-align: left;
 }
 .slider img {
   width: 100%;
   height: 100%;
+  max-width: 100%;
+  max-height: 250px;
   object-fit: cover;
 }
 
