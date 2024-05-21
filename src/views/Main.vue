@@ -122,7 +122,7 @@ function handleKeyPress(event) {
     <CommunitySection v-if="!terminalMode" />
     <TrustedBySection v-if="!terminalMode" />
     <BureauSection v-if="!terminalMode || currentSection === 4" />
-    <!-- <FAQSection id="FAQ" v-if="!terminalMode" /> -->
+    <FAQSection id="FAQ" v-if="!terminalMode" />
     <FooterSection v-if="!terminalMode" />
     <!-- <img v-if="terminalMode" class="terminal-footer" src="./assets/svg/footer.svg" alt=""> -->
     <div class="terminal-footer w-100" v-if="terminalMode">

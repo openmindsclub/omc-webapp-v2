@@ -297,7 +297,7 @@ async function submit(e) {
             for="default-checkbox"
             class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
-            Would you like to present your project / PFE at the event?
+            Would you like to participate in the Best Thesis Competition by presenting your project / PFE at the event?
           </label>
         </div>
       </div>

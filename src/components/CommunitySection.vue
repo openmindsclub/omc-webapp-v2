@@ -57,8 +57,8 @@ import Title from "./Title.vue";
         <p class="description">{{ $t("events") }}</p>
       </div>
       <div class="number d-flex fl-col fl-j-c fl-a-c">
-        <p>400<span>+</span></p>
-        <p class="description">{{ $t("engagement") }}</p>
+        <p>8k<span>+</span></p>
+        <p class="description">{{ $t("member") }}</p>
       </div>
     </div>
   </section>
