@@ -3,53 +3,77 @@ import { computed, onMounted, ref } from "vue";
 import Title from "./Title.vue";
 import { useAppStore } from "../store/store";
 import TerminalNavbar from "./TerminalNavbar.vue";
-import InstallParty from "../assets/images/events/ip.JPG";
-import ArabGames from "../assets/images/events/arab-games.jpg";
-import Congres from "../assets/images/events/congres.JPG";
-import Stand from "../assets/images/events/stand.JPG";
 
 const events = [
   {
     title: "Install Party",
-    description: "",
-    image: InstallParty,
+    description:
+      "The Install Party is the OpenMinds club's flagship event, and has been held every year since 2008. \n The day-long event features a series of conferences, panels, workshops, challenges and many other activities focusing on the Free/Open Source philosophy, as well as Linux installations.",
+    image: "/images/events/ip.jpg",
   },
   {
     title: "Arab Games 2023",
-    description: "",
-    image: ArabGames,
+    description:
+      "Open Minds Club was honored at the Pan Arab Games for its outstanding contribution, having played a crucial role in the success of the event in collaboration with the Pan Arab Games Commission. \nThe club was particularly recognized for its commitment and outstanding efforts in the tech, accreditation and protocol departments. This recognition highlights the importance of their hard work over three months, and represents a huge source of pride for the entire club community.",
+    image: "/images/events/arab-games.jpeg",
   },
   {
-    title: "CLEF Congres",
+    title: "1er Congrès de la jeunesse estudiantine francophone ( CJEF), Caire",
     description: "",
-    image: Congres,
+    image: "/images/events/congres1.jpg",
+  },
+  {
+    title:
+      "2eme Congrès de la jeunesse estudiantine francophone ( CJEF), Québec",
+    description: "",
+    image: "/images/events/congres2.jpg",
   },
   {
     title: "OMC Stands",
     description: "",
-    image: Stand,
+    image: "/images/events/stand.JPG",
   },
+  // {
+  //   title: "Hacktoberfest",
+  //   description:
+  //     "Le Hacktoberfest est un événement international dédié à l’Open Source. Il a pour but de promouvoir les contributions sur les projets Open Source sur GitHub.",
+  //   image: "",
+  // },
+  // {
+  //   title: "ClefCode",
+  //   description:
+  //     "Cléf Code est un concours organisé par les trois clubs algériens du réseau Cléf, sous le slogan “Codons Le Réel En Jeu Virtuel”. Ce game jam intensif de 48 heures réunit des développeurs passionnés qui explorent un thème inédit pour créer des expériences de jeu uniques.",
+  //   image: "",
+  // },
 
   // duplicate the list, just to ensure an infinite smoothe scroll
   {
     title: "Install Party",
-    description: "",
-    image: InstallParty,
+    description:
+      "The Install Party is the OpenMinds club's flagship event, and has been held every year since 2008. \n The day-long event features a series of conferences, panels, workshops, challenges and many other activities focusing on the Free/Open Source philosophy, as well as Linux installations.",
+    image: "/images/events/ip.jpg",
   },
   {
     title: "Arab Games 2023",
-    description: "",
-    image: ArabGames,
+    description:
+      "Open Minds Club was honored at the Pan Arab Games for its outstanding contribution, having played a crucial role in the success of the event in collaboration with the Pan Arab Games Commission. \nThe club was particularly recognized for its commitment and outstanding efforts in the tech, accreditation and protocol departments. This recognition highlights the importance of their hard work over three months, and represents a huge source of pride for the entire club community.",
+    image: "/images/events/arab-games.jpeg",
   },
   {
-    title: "CLEF Congres",
+    title: "1er Congrès de la jeunesse estudiantine francophone ( CJEF), Caire",
     description: "",
-    image: Congres,
+    image: "/images/events/congres1.jpg",
+  },
+  {
+    title:
+      "2eme Congrès de la jeunesse estudiantine francophone ( CJEF), Québec",
+    description: "",
+    image: "/images/events/congres2.jpg",
   },
   {
     title: "OMC Stands",
     description: "",
-    image: Stand,
+    image: "/images/events/stand.JPG",
   },
 ];
 
@@ -57,26 +81,47 @@ const appStore = useAppStore();
 const terminalMode = computed(() => appStore.terminalMode);
 
 const slider = ref();
-const currentIndex = ref(0);
+// const currentIndex = ref(0);
 const itemWidth = ref(0);
+const currentPosition = ref(0);
+const isAnimationPaused = ref(false);
 
-function slideLeft() {
-  if (currentIndex.value > 0) {
-    currentIndex.value--;
-    updateSliderPosition();
+// function slideLeft() {
+//   if (currentIndex.value > 0) {
+//     currentIndex.value--;
+//     updateSliderPosition();
+//   }
+// }
+
+// function slideRight() {
+//   if (currentIndex.value < events.length - 1 - 3) {
+//     currentIndex.value++;
+//     updateSliderPosition();
+//   }
+// }
+
+// function updateSliderPosition() {
+//   const offset = -currentIndex.value * itemWidth.value;
+//   slider.value.style.transform = `translateX(${offset}px)`;
+// }
+
+// when clicking an item in the moving slider, stop the animation, and when clicking again, resume the animation
+function toggleAnimation() {
+  currentPosition.value = slider.value.getBoundingClientRect().left;
+  if (isAnimationPaused.value) {
+    slider.value.style.animationPlayState = "running";
+    // slider.value.style.transform = `translateX(${currentPosition.value}px)`;
+    isAnimationPaused.value = false;
+  } else {
+    slider.value.style.animationPlayState = "paused";
+    isAnimationPaused.value = true;
   }
 }
 
-function slideRight() {
-  if (currentIndex.value < events.length - 1 - 3) {
-    currentIndex.value++;
-    updateSliderPosition();
-  }
-}
-
-function updateSliderPosition() {
-  const offset = -currentIndex.value * itemWidth.value;
-  slider.value.style.transform = `translateX(${offset}px)`;
+const selectedEvent = ref(null);
+function selectEvent(event) {
+  toggleAnimation();
+  selectedEvent.value = event;
 }
 
 onMounted(() => {
@@ -128,10 +173,31 @@ onMounted(() => {
         color="#49ac36"
       ></Title>
       <p class="description" :style="terminalMode ? { color: 'white' } : {}">
-        {{`> ${$t('desc-events')}`}}
+        {{ `> ${$t("desc-events")}` }}
       </p>
       <TerminalNavbar v-if="terminalMode" color="#49ac36" />
     </div>
+
+    <!-- <div
+      id="popup"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+      v-if="selectedEvent"
+    >
+      <div
+        :class="`bg-white p-6 rounded-lg shadow-lg max-w-sm w-full relative bg-[url(${selectedEvent?.image})] bg-cover bg-center`"
+      >
+        <h2 class="text-xl font-bold mb-4">{{ selectedEvent?.title }}</h2>
+        <p class="text-gray-700">{{ selectedEvent?.description }}</p>
+
+        <button
+          id="closeButton"
+          class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
+          @click="selectEvent(null)"
+        >
+          &times;
+        </button>
+      </div>
+    </div> -->
 
     <div class="slider-container">
       <div class="slider d-flex fl-a-c" ref="slider">
@@ -139,6 +205,7 @@ onMounted(() => {
           class="item d-flex fl-j-c fl-a-c"
           v-for="(item, index) in events"
           :key="index"
+          @click="selectEvent(item)"
         >
           <div
             class="item-wrapper"
@@ -149,7 +216,7 @@ onMounted(() => {
             <img :src="item.image" alt="" />
             <div class="bottom bg-black">
               <h3>{{ item.title }}</h3>
-              <p>{{ item.description }}</p>
+              <p>{{ "" }}</p>
             </div>
           </div>
         </div>
@@ -201,7 +268,7 @@ section.events {
   right: 20px;
 }
 .slider {
-  min-width: 100vw;
+  min-width: 125vw;
   font-family: Ubuntu Mono;
   font-size: 20px;
   font-weight: 700;
@@ -210,9 +277,9 @@ section.events {
 }
 .slider .item {
   position: relative;
-  width: 25%;
-  min-width: 25%;
-  max-width: 25%;
+  width: 25vw;
+  min-width: 25vw;
+  max-width: 25vw;
   border-radius: 16px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -279,7 +346,7 @@ section.events {
     width: 70vw;
     min-width: 70vw;
     max-width: 70vw;
-    height: auto
+    height: auto;
     /* min-height: 150px; */
   }
 
@@ -288,7 +355,7 @@ section.events {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-280vw);
+      transform: translateX(calc(-70vw * 5));
     }
   }
 }
