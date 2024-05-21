@@ -4,45 +4,45 @@ import Title from "./Title.vue";
 
 const list = ref([
   {
-    question: "Why is Webflow the best nocode tool?",
+    question: "Open source kezako?",
     answer:
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
+      "This word is so important to our club that it constitutes the very essence of its philosophy, but remains misinterpreted by the majority. The term was originally coined to designate computer software whose source code is open to all and to which anyone can contribute. Today, the concept has become widespread, and refers to the fact of having access to the source of a product's realization: the chemical composition of a drug, the plans for a piece of furniture or a house, the ingredients of a recipe... the source code of a software product...",
     isOpen: true,
   },
   {
-    question: "How to launch a Webflow website?",
+    question: "How can I joing the club?",
     answer:
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
+      "You just need to follow us on social media and subscribe to be informed of our latest news and events.",
     isOpen: false,
   },
   {
-    question: "When did Webflow was founded?",
+    question: "How can I contribute to Open Minds Club projects?",
     answer:
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
+      "You can contribute to our projects by participating in our events and sharing your knowledge and skills with the community, by proposing new projects or contributing to existing ones from our GitHub repository.",
     isOpen: false,
   },
   {
-    question: "Who founded BRIX Templates?",
+    question: "Where is the club located?",
     answer:
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
+      "The Open Minds Club is is located in the CRI at the University of Houari Boumediene, Bab Ezzouar, Algiers, Algeria.",
     isOpen: false,
   },
   {
-    question: "Who are the Webflow founders?",
+    question: "What is the meaning of Open Minds Club slogan?",
     answer:
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
+      'The slogan of OMC "Ce qui ne se partage pas se perd " means that knowledge is a treasure that grows when shared. It is a call to share knowledge and skills with the community.',
     isOpen: false,
   },
-  {
-    question: "Is NoCode the future of the web?",
-    answer:
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
-    isOpen: false,
-  },
+  // {
+  //   question: "Is NoCode the future of the web?",
+  //   answer:
+  //     "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor",
+  //   isOpen: false,
+  // },
 ]);
 
 function toggleAnswer(item) {
-    item.isOpen = !item.isOpen;
+  item.isOpen = !item.isOpen;
 }
 </script>
 
