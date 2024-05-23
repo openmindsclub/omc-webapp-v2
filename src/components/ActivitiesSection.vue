@@ -119,7 +119,7 @@ const terminalMode = computed(() => appStore.terminalMode);
         <div>
           <h2 class="subtitle">{{ `> ${$t("title-workshops-tuto")}` }}</h2>
           <p class="desc">
-            {{ `> ${$t("desc-open-wiki")}` }}
+            {{ `> ${$t("desc-workshops-tuto")}` }}
           </p>
           <!-- <a href="#" class="link d-flex fl-a-c fl-j-c"
             >Visit Now <img src="../assets/svg/arrow-right.svg" alt="" />

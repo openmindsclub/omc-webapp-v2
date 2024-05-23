@@ -283,6 +283,7 @@ section.events {
   border-radius: 16px;
   background-repeat: no-repeat;
   background-size: cover;
+  aspect-ratio: 16 / 9;
 }
 .item-wrapper {
   width: calc(100% - 20px);
