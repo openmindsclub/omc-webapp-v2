@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar2.vue";
 import Title from "../components/Title.vue";
 import axios from "axios";
 import DownArrow from "../assets/svg/arrow-down-blue.svg";
+import SponsoredBy from "../assets/svg/edenai.svg";
 
 // form data and validation
 const formData = ref({
@@ -131,10 +132,10 @@ async function submit(e) {
     <div
       class="flex flex-col items-center justify-center mt-10 w-[100%] md:w-[80%] rounded-lg shadow-lg md:shadow-xl font-[mono]"
     >
-    <h1 class="text-2xl"
-    >Sponsored By</h1>
+    <!-- <h1 class="text-2xl"
+    >Sponsored By</h1> -->
       <img
-        src="../assets/images/edenai.png"
+        :src="SponsoredBy"
         alt="Eden AI"
         class="min-w-[200px] w-[60%] md:w-[30%]"
       />
@@ -146,6 +147,8 @@ async function submit(e) {
         transforming complex AI use cases into seamless, integrated workflows.
       </p>
     </div>
+
+    <hr class="border-1 border-[#fff] w-[80%] md:w-[50%] mt-40">
 
     <!-- show "Registration are now open!" with typewriter effect -->
     <h1
