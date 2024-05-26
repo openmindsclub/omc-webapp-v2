@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { useAppStore } from "../store/store";
 import Title from "./Title.vue";
 import TerminalNavbar from "./TerminalNavbar.vue";
-import FooterSvg from "../assets/svg/footer.svg"
+import FooterSvg from "../assets/svg/footer.svg";
 
 const appStore = useAppStore();
 const terminalMode = computed(() => appStore.terminalMode);
@@ -47,15 +47,34 @@ const terminalMode = computed(() => appStore.terminalMode);
     </div>
     <Title
       class="title"
-      :text="`>${ $t('button-about') }`"
+      :text="`>${$t('button-about')}`"
       number="1"
       color="#f8ae28"
     ></Title>
-    <p class="description" :style="terminalMode ? { color: 'white', maxWidth: '95%' } : {}">
-      {{ `> ${$t('desc-about-us')}` }}
-    </p>
+
+    <div class="flex flex-col items-center justify-center w-full md:flex-row">
+      <p
+        class="description md:w-50"
+        :style="terminalMode ? { color: 'white', maxWidth: '95%' } : {}"
+      >
+        {{ `> ${$t("desc-about-us")}` }}
+      </p>
+      
+      <div class="video-container w-100 md:w-50 mt-10">
+        <iframe
+        width="100%"
+        height="100%"
+          src="https://www.youtube.com/embed/ysnt-nAPTNo?si=Ro8LCAz74Z7XlFUV&autoplay=1&loop=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
     <TerminalNavbar v-if="terminalMode" color="#f8ae28" />
-    <br>
+    <br />
   </section>
 </template>
 
@@ -67,10 +86,13 @@ const terminalMode = computed(() => appStore.terminalMode);
   background-position: bottom;
 }
 
+.video-container {
+  aspect-ratio: 16/9;
+}
+
 @media (max-width: 700px) {
   .about {
     background-position: center 80%;
   }
-
 }
 </style>
