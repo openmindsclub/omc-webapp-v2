@@ -68,9 +68,9 @@ const terminalMode = computed(() => appStore.terminalMode);
       <div class="card d-flex fl-a-c fl-j-c">
         <img src="../assets/svg/usthb-logo.svg" alt="" srcset="" />
       </div>
-      <div class="card d-flex fl-a-c fl-j-c">
+      <!-- <div class="card d-flex fl-a-c fl-j-c">
         <img src="../assets/svg/auf-logo.svg" alt="" srcset="" />
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

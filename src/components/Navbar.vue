@@ -27,9 +27,9 @@
           </option>
         </select>
       </li>
-      <li>
+      <!-- <li>
         <a href="/omtech">OMTech</a>
-      </li>
+      </li> -->
       <li>
         <a href="#about"
           ><span>{{ $t("button-about") }}</span> <img :src="Hand" alt=""

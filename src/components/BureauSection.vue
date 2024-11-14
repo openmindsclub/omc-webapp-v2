@@ -3,9 +3,9 @@ import { computed, ref } from "vue";
 import Title from "../components/Title.vue";
 import SuitIcon from "../assets/svg/suit.svg";
 
-import Nada from "../assets/images/nada.png";
-import Aymen from "../assets/images/aymen.png";
-import Riyadh from "../assets/images/riyadh.png";
+import Nada from "../assets/images/sarah.png";
+import Aymen from "../assets/images/riyadh.png";
+import Riyadh from "../assets/images/amine.png";
 import { useAppStore } from "../store/store";
 import TerminalNavbar from "./TerminalNavbar.vue";
 
@@ -116,17 +116,17 @@ const terminalMode = computed(() => appStore.terminalMode);
       </div> -->
 
       <div class="card member1">
-        <h2>Nada Tis</h2>
+        <h2>Sara Sadoudi</h2>
         <p>Secrétaire Général</p>
       </div>
 
       <div class="card member2">
-        <h2>Riaydh Bedjaoui</h2>
+        <h2>Amine Alliche</h2>
         <p>Vice-President</p>
       </div>
 
       <div class="card member3">
-        <h2>Aymen Ghemam</h2>
+        <h2>Riaydh Bedjaoui</h2>
         <p>President</p>
       </div>
 

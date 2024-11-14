@@ -27,22 +27,27 @@ function jumpAnimation() {
     <p>{{ $t("header") }}</p>
 
     <div class="btns d-flex fl-j-c fl-a-c row">
-      <button class="reg-btn d-flex fl-a-c fl-j-c" disabled>
-        <span>{{ $t("button-register") }}</span><img src="../Images/ArrowRight.svg" alt="" />
-      </button>
+      <a
+        href="https://join.openmindsclub.net/"
+        class="reg-btn d-flex fl-a-c fl-j-c"
+      >
+        <span>{{ $t("button-register") }}</span
+        ><img src="../Images/ArrowRight.svg" alt="" />
+      </a>
       <a
         href="https://discord.gg/auupT4xpmP"
         target="”_blank”"
         class="dis-btn d-flex fl-a-c fl-j-c"
       >
-        <span>{{ $t("button-join-discord") }}</span><img src="../Images/discord.svg" alt="" />
+        <span>{{ $t("button-join-discord") }}</span
+        ><img src="../Images/discord.svg" alt="" />
       </a>
     </div>
 
     <div class="terminal-wrapper">
       <WindowBar />
       <div class="terminal">
-        <p>{{`[user @openminds]$ ${$t('welcome')}`}} <br /></p>
+        <p>{{ `[user @openminds]$ ${$t("welcome")}` }} <br /></p>
         <!-- blinker -->
         <p>[user @openminds]$ <span class="blinker"></span></p>
         <div class="bottom d-flex fl-col fl-a-c fl-j-c">
@@ -54,7 +59,7 @@ function jumpAnimation() {
             srcset=""
           />
           <p @click="toggleDisplay" class="terminal-mode-btn">
-            {{`[${$t('button-open-terminal')}]`}}
+            {{ `[${$t("button-open-terminal")}]` }}
           </p>
         </div>
       </div>
@@ -122,7 +127,7 @@ function jumpAnimation() {
 }
 .reg-btn {
   background-color: rgba(0, 0, 0, 0);
-  opacity: 0.5;
+  /* opacity: 0.5; */
   cursor: not-allowed;
   cursor: cell;
 }
