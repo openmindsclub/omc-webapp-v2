@@ -8,6 +8,7 @@
       alt="Menu"
       @click="toggleMenu"
     />
+    
     <img
       class="toggle"
       v-else
