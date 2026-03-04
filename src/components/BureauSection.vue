@@ -88,15 +88,8 @@ const terminalMode = computed(() => appStore.terminalMode);
                 <img class="icon" :src="SuitIcon" alt="" srcset="" />
             </div>
 
-            <!-- <div class="cards">
-        <div class="card" v-for="member in members">
-          <h2>{{ member.name }}</h2>
-          <p>{{ member.description }}</p>
-        </div>
-      </div> -->
-
             <div class="card member1">
-                <h2>Feriel Blekacem</h2>
+                <h2>Feriel Belkacem</h2>
                 <p>General Secretary</p>
             </div>
 
@@ -180,15 +173,6 @@ const terminalMode = computed(() => appStore.terminalMode);
                     class="bureau-pic"
                 />
 
-                <!-- <image
-          x="186"
-          y="288"
-          width="81"
-          height="81"
-          :xlink:href="Riyad"
-          clip-path="url(#avatar-clip-4)"
-        /> -->
-
                 <image
                     x="600"
                     y="350"
@@ -199,25 +183,7 @@ const terminalMode = computed(() => appStore.terminalMode);
                     class="bureau-pic"
                 />
 
-                <!-- show the member name under the image -->
-                <!-- <text x="164.5" y="100" fill="#C4C4C4" font-size="16">Nada Tis 1</text>
-        <text x="901.5" y="150" fill="#C4C4C4" font-size="16">Nada Tis</text>
-        <text x="600" y="450" fill="#C4C4C4" font-size="16">Nada Tis</text> -->
-
                 <defs>
-                    <!-- <clipPath id="avatar-clip-1">
-            <circle cx="205" cy="41" r="40.5" class="bureau-pic" />
-          </clipPath>
-          <clipPath id="avatar-clip-2">
-            <circle cx="640.5" cy="395.5" r="40.5" class="bureau-pic" />
-          </clipPath>
-          <clipPath id="avatar-clip-3">
-            <circle cx="942" cy="90.5" r="40.5" class="bureau-pic" />
-          </clipPath> -->
-                    <!-- <clipPath id="avatar-clip-4">
-            <circle cx="226.5" cy="328.588" r="40.5" />
-          </clipPath> -->
-
                     <linearGradient
                         id="gradient1"
                         x1="0%"
@@ -261,12 +227,17 @@ const terminalMode = computed(() => appStore.terminalMode);
 :root {
     --image-width: 80;
 }
-
+#bureau.section {
+    overflow: unset;
+}
 #bureau {
-    padding: 0;
+    padding: 1em 0;
+    padding-bottom: 120px;
+    margin-bottom: 60px;
     /* overflow-y: auto; */
-    min-height: 110vh;
+    min-height: auto;
     position: relative;
+    overflow-y: visible;
 }
 .svg-container {
     width: 100%;
@@ -346,12 +317,48 @@ text {
     background-color: red;
 }
 
+@media (min-width: 701px) and (max-width: 1200px) {
+    .member1 {
+        top: -70px;
+        left: 5vw;
+    }
+    .member2 {
+        top: -20px;
+        right: 10vw;
+    }
+    .member3 {
+        top: 92%;
+        left: 40vw;
+    }
+}
+
 @media (max-width: 700px) {
     #bureau {
         padding: 0;
+        padding-bottom: 100px;
     }
     .svg-container .title-container {
         top: 0;
+        font-size: 16px;
+    }
+    .svg-container .title-container h1 {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    .svg-container .title-container .icon {
+        width: 28px;
+    }
+
+    .card {
+        font-size: 12px;
+        padding: 6px 8px;
+        border-radius: 10px;
+    }
+    .card h2 {
+        font-size: 14px;
+    }
+    .card p {
+        padding: 4px;
     }
 
     image.bureau-pic {
@@ -360,15 +367,15 @@ text {
     }
 
     .member1 {
-        top: -100px;
+        top: -60px;
         left: 0;
     }
     .member2 {
-        top: -60px;
+        top: -30px;
         right: 0;
     }
     .member3 {
-        top: 102%;
+        top: 90%;
         left: 40vw;
     }
 }
