@@ -256,10 +256,8 @@ const terminalMode = computed(() => appStore.terminalMode);
     margin-bottom: 50px;
   }
   .card {
-    width: 360px;
+    width: min(360px, 90vw);
     height: 260px;
-    /* max-width: 80vw;
-    max-height: 266px; */
   }
   .card .image {
     height: 200px;

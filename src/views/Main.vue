@@ -104,6 +104,7 @@ function handleKeyPress(event) {
 
 <template>
   <Navbar v-if="!terminalMode" />
+  <div v-if="!terminalMode" class="navbar-spacer"></div>
   <Hero v-if="!terminalMode" />
 
   <div
@@ -351,6 +352,12 @@ function handleKeyPress(event) {
 </template>
 
 <style scoped>
+.navbar-spacer {
+  height: 76px; /* matches navbar height: 14px padding * 2 + 48px logo */
+  width: 100%;
+  flex-shrink: 0;
+}
+
 .section {
   position: relative;
   width: 100%;

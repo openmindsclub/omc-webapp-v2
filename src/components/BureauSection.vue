@@ -399,7 +399,7 @@ const terminalMode = computed(() => appStore.terminalMode);
     --image-width: 80;
 }
 #bureau.section {
-    overflow: unset;
+    overflow-x: hidden;
 }
 #bureau {
     padding: 1em 0;
@@ -409,6 +409,7 @@ const terminalMode = computed(() => appStore.terminalMode);
     min-height: auto;
     position: relative;
     overflow-y: visible;
+    overflow-x: hidden;
 }
 .svg-container {
     width: 100%;

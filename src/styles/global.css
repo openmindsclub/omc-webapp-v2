@@ -25,6 +25,7 @@ body {
 }
 
 body {
+  overflow-x: hidden;
   font-family: Ubuntu, sans-serif;
   font-weight: 400;
   background-image: url(../assets/svg/bg.svg);
@@ -98,10 +99,6 @@ a {
   color: white;
 }
 
-/* smooth transition for all elements */
-* {
-  animation: all 0.3s ease;
-}
 
 .blinker {
   display: inline-block;
