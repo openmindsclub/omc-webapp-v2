@@ -399,21 +399,19 @@ const terminalMode = computed(() => appStore.terminalMode);
     --image-width: 80;
 }
 #bureau.section {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 #bureau {
     padding: 1em 0;
-    padding-bottom: 120px;
+    padding-top: 50px;
+    padding-bottom: 250px;
     margin-bottom: 60px;
-    /* overflow-y: auto; */
     min-height: auto;
     position: relative;
-    overflow-y: visible;
-    overflow-x: hidden;
 }
 .svg-container {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 220px;
     position: relative;
     max-height: 510px;
 }
@@ -894,6 +892,12 @@ h1 {
 
 /* ---- Medium screens ---- */
 @media (min-width: 701px) and (max-width: 1200px) {
+    .svg-container {
+        margin-top: 100px;
+    }
+    #bureau {
+        padding-bottom: 200px;
+    }
     .member1 {
         top: -70px;
         left: 5vw;
@@ -924,7 +928,11 @@ h1 {
 @media (max-width: 700px) {
     #bureau {
         padding: 0;
-        padding-bottom: 100px;
+        padding-top: 20px;
+        padding-bottom: 180px;
+    }
+    .svg-container {
+        margin-top: 80px;
     }
     .svg-container .title-container {
         top: 0;
