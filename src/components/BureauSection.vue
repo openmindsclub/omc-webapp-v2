@@ -965,9 +965,37 @@ h1 {
         border-radius: 13px;
     }
 
+    /* Keep original mobile photo size */
     image.bureau-pic {
         width: 200px;
         height: 200px;
+    }
+
+    /* Scale ONLY the ring + halo circles (not the photo) to match the 200x200 photos.
+       Photos grow from 81->200 with same top-left anchor, shifting center by 59.5px each axis.
+       Scale 2.47x around original center, then translate to new photo center. */
+    .member-group-1 .avatar-ring,
+    .member-group-1 .avatar-halo {
+        transform-origin: 205px 40.5px;
+        transform: translate(59.5px, 59.5px) scale(2.47);
+    }
+    .member-group-2 .avatar-ring,
+    .member-group-2 .avatar-halo {
+        transform-origin: 942px 90.5px;
+        transform: translate(59.5px, 59.5px) scale(2.47);
+    }
+    .member-group-3 .avatar-ring,
+    .member-group-3 .avatar-halo {
+        transform-origin: 640.5px 390.5px;
+        transform: translate(59.5px, 59.5px) scale(2.47);
+    }
+
+    /* Thin out strokes to compensate for the 2.47x scale */
+    .avatar-ring {
+        stroke-width: 1;
+    }
+    .avatar-halo {
+        stroke-width: 0.6;
     }
 
     .member1 {
