@@ -9,29 +9,29 @@ const events = [
     title: "Install Party",
     description:
       "The Install Party is the OpenMinds club's flagship event, and has been held every year since 2008. \n The day-long event features a series of conferences, panels, workshops, challenges and many other activities focusing on the Free/Open Source philosophy, as well as Linux installations.",
-    image: "/images/events/ip.jpg",
+    image: "images/events/ip.jpg",
   },
   {
     title: "Arab Games 2023",
     description:
       "Open Minds Club was honored at the Pan Arab Games for its outstanding contribution, having played a crucial role in the success of the event in collaboration with the Pan Arab Games Commission. \nThe club was particularly recognized for its commitment and outstanding efforts in the tech, accreditation and protocol departments. This recognition highlights the importance of their hard work over three months, and represents a huge source of pride for the entire club community.",
-    image: "/images/events/arab-games.jpeg",
+    image: "images/events/arab-games.jpeg",
   },
   {
     title: "1er Congrès de la jeunesse estudiantine francophone ( CJEF), Caire",
     description: "",
-    image: "/images/events/congres1.jpg",
+    image: "images/events/congres1.jpg",
   },
   {
     title:
       "2eme Congrès de la jeunesse estudiantine francophone ( CJEF), Québec",
     description: "",
-    image: "/images/events/congres2.jpg",
+    image: "images/events/congres2.jpg",
   },
   {
     title: "OMC Stands",
     description: "",
-    image: "/images/events/stand.JPG",
+    image: "images/events/stand.JPG",
   },
   // {
   //   title: "Hacktoberfest",
@@ -51,32 +51,33 @@ const events = [
     title: "Install Party",
     description:
       "The Install Party is the OpenMinds club's flagship event, and has been held every year since 2008. \n The day-long event features a series of conferences, panels, workshops, challenges and many other activities focusing on the Free/Open Source philosophy, as well as Linux installations.",
-    image: "/images/events/ip.jpg",
+    image: "images/events/ip.jpg",
   },
   {
     title: "Arab Games 2023",
     description:
       "Open Minds Club was honored at the Pan Arab Games for its outstanding contribution, having played a crucial role in the success of the event in collaboration with the Pan Arab Games Commission. \nThe club was particularly recognized for its commitment and outstanding efforts in the tech, accreditation and protocol departments. This recognition highlights the importance of their hard work over three months, and represents a huge source of pride for the entire club community.",
-    image: "/images/events/arab-games.jpeg",
+    image: "images/events/arab-games.jpeg",
   },
   {
     title: "1er Congrès de la jeunesse estudiantine francophone ( CJEF), Caire",
     description: "",
-    image: "/images/events/congres1.jpg",
+    image: "images/events/congres1.jpg",
   },
   {
     title:
       "2eme Congrès de la jeunesse estudiantine francophone ( CJEF), Québec",
     description: "",
-    image: "/images/events/congres2.jpg",
+    image: "images/events/congres2.jpg",
   },
   {
     title: "OMC Stands",
     description: "",
-    image: "/images/events/stand.JPG",
+    image: "images/events/stand.JPG",
   },
 ];
 
+const baseUrl = import.meta.env.BASE_URL;
 const appStore = useAppStore();
 const terminalMode = computed(() => appStore.terminalMode);
 
@@ -213,7 +214,7 @@ onMounted(() => {
               transform: index % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
             }"
           >
-            <img :src="item.image" alt="" />
+            <img :src="baseUrl + item.image" alt="" />
             <div class="bottom bg-black">
               <h3>{{ item.title }}</h3>
               <p>{{ "" }}</p>
